@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301374CDEA7D64C09D8B28E2 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */; };
 		3A89A013272A095200A1B3D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89A012272A095200A1B3D3 /* AppDelegate.swift */; };
 		3A89A015272A095200A1B3D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89A014272A095200A1B3D3 /* SceneDelegate.swift */; };
 		3A89A017272A095200A1B3D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89A016272A095200A1B3D3 /* ViewController.swift */; };
 		3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A018272A095200A1B3D3 /* Main.storyboard */; };
 		3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01B272A095300A1B3D3 /* Assets.xcassets */; };
 		3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */; };
-		E42031A80B841D0D8C9C270D /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0757FA853486E5CC24C429A3 /* Pods_Toss_Time.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0757FA853486E5CC24C429A3 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A89A00F272A095200A1B3D3 /* Toss_Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toss_Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A89A012272A095200A1B3D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A89A014272A095200A1B3D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,8 +25,9 @@
 		3A89A01B272A095300A1B3D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A89A01E272A095300A1B3D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A89A020272A095300A1B3D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C751DBB460C2950F0D18E96 /* Pods-Toss_Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.debug.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.debug.xcconfig"; sourceTree = "<group>"; };
-		D972DF83118B9A22CB6765EC /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
+		55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.debug.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.debug.xcconfig"; sourceTree = "<group>"; };
+		74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
+		944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E42031A80B841D0D8C9C270D /* Pods_Toss_Time.framework in Frameworks */,
+				301374CDEA7D64C09D8B28E2 /* Pods_Toss_Time.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,8 +47,8 @@
 			children = (
 				3A89A011272A095200A1B3D3 /* Toss_Time */,
 				3A89A010272A095200A1B3D3 /* Products */,
-				E8A2796C7AEBC65B9874F83B /* Pods */,
-				ACC7FCE27096E0E72BDAAFC7 /* Frameworks */,
+				DF362121A894E49CC36B1F4B /* Pods */,
+				589C1C340A42185F564F7486 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,19 +74,19 @@
 			path = Toss_Time;
 			sourceTree = "<group>";
 		};
-		ACC7FCE27096E0E72BDAAFC7 /* Frameworks */ = {
+		589C1C340A42185F564F7486 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0757FA853486E5CC24C429A3 /* Pods_Toss_Time.framework */,
+				944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E8A2796C7AEBC65B9874F83B /* Pods */ = {
+		DF362121A894E49CC36B1F4B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8C751DBB460C2950F0D18E96 /* Pods-Toss_Time.debug.xcconfig */,
-				D972DF83118B9A22CB6765EC /* Pods-Toss_Time.release.xcconfig */,
+				55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */,
+				74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -353,7 +353,7 @@
 		};
 		3A89A024272A095300A1B3D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C751DBB460C2950F0D18E96 /* Pods-Toss_Time.debug.xcconfig */;
+			baseConfigurationReference = 55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,7 +382,7 @@
 		};
 		3A89A025272A095300A1B3D3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D972DF83118B9A22CB6765EC /* Pods-Toss_Time.release.xcconfig */;
+			baseConfigurationReference = 74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
