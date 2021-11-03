@@ -9,11 +9,11 @@ import CoreLocation
 import GoogleMaps
 import UIKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     @IBOutlet weak var myMap: GMSMapView!
     
     let locationManager = CLLocationManager()
-
+    //var tables: [GMSMarker] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -40,11 +40,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
 
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        
+        //let urlGeocoder = "https://maps/googleapis.com/maps/api/geocode/json?latlng=\(lat),\(long)"
         marker.title = "hi"
         marker.snippet = "hello"
         marker.map = mapView
-
+        marker.tracksInfoWindowChanges = true
+//        tables.append(marker)
     }
+    
+    //TODO: Way to delete marker
+    func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
+        present(vc, animated: true)
+    }
+    
+    //TODO: Custom Info window
+    
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         myMap.camera = GMSCameraPosition(
@@ -83,8 +97,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         print(error)
     }
     
-    
-
-
 }
 
+class ViewControllerTwo: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
+    
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        view.backgroundColor = .blue
+    }
+}
