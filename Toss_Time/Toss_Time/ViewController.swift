@@ -11,6 +11,8 @@ import UIKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
+    var text:String = ""
+    
     @IBOutlet weak var myMap: GMSMapView!
     
     public var completionHandler: ((String?) -> Void)?
@@ -33,48 +35,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         else{
             locationManager.requestWhenInUseAuthorization()
         }
-        // Do any additional setup after loading the view.
-        //GMSServices.provideAPIKey("AIzaSyBXtU8FJoiP9w4tyLbUvZQ07oYJ7oc1pUQ")
-        
-        
-        
+       
         //print("licenseL \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     
    
     
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let lat = coordinate.latitude
         let long = coordinate.longitude
 
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        
-        //let urlGeocoder = "https://maps/googleapis.com/maps/api/geocode/json?latlng=\(lat),\(long)"
-        marker.title = "hi"
-        marker.snippet = "hello"
+    
+        marker.title = "fsdafadsfasdfasd"
+        marker.snippet = "Add a post"
         marker.map = mapView
         marker.tracksInfoWindowChanges = true
 //        tables.append(marker)
     }
     
     //TODO: Way to delete marker
-    func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-//        NotificationCenter.default.post(name: Notification.Name("notificationName"), object: ["color": UIColor.red])
-//
-        
-        completionHandler?(marker.title)
-
         let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
+        
+        vc.text = marker.title ?? "Not a valid marker"
+        navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
-        
-        
-        
+    
     }
     
     //TODO: Custom Info window
-    
     
     
     
@@ -116,11 +108,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
 }
-
-//class ViewControllerTwo: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
-//
-//    override func viewDidLoad(){
-//        super.viewDidLoad()
-//        view.backgroundColor = .blue
-//    }
-//}
