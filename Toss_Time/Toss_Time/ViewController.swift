@@ -10,12 +10,19 @@ import GoogleMaps
 import UIKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
+    
     @IBOutlet weak var myMap: GMSMapView!
+    
+    public var completionHandler: ((String?) -> Void)?
+    
+    
     
     let locationManager = CLLocationManager()
     //var tables: [GMSMarker] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         locationManager.delegate = self
         myMap.delegate = self
         
@@ -34,6 +41,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         //print("licenseL \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     
+   
+    
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         let lat = coordinate.latitude
         let long = coordinate.longitude
@@ -51,8 +60,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
+        
+//        NotificationCenter.default.post(name: Notification.Name("notificationName"), object: ["color": UIColor.red])
+//
+        
+        completionHandler?(marker.title)
+
         let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
         present(vc, animated: true)
+        
+        
+        
     }
     
     //TODO: Custom Info window
@@ -99,10 +117,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
 }
 
-class ViewControllerTwo: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
-    
-    override func viewDidLoad(){
-        super.viewDidLoad()
-        view.backgroundColor = .blue
-    }
-}
+//class ViewControllerTwo: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
+//
+//    override func viewDidLoad(){
+//        super.viewDidLoad()
+//        view.backgroundColor = .blue
+//    }
+//}
