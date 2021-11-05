@@ -17,7 +17,7 @@
 		3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A018272A095200A1B3D3 /* Main.storyboard */; };
 		3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01B272A095300A1B3D3 /* Assets.xcassets */; };
 		3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */; };
-		60AA3CC6273522C2005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC5273522C2005119E9 /* GoogleService-Info.plist */; };
+		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		3A89A01E272A095300A1B3D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A89A020272A095300A1B3D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.debug.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.debug.xcconfig"; sourceTree = "<group>"; };
-		60AA3CC5273522C2005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
 		944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +71,7 @@
 		3A89A011272A095200A1B3D3 /* Toss_Time */ = {
 			isa = PBXGroup;
 			children = (
+				60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */,
 				3A89A012272A095200A1B3D3 /* AppDelegate.swift */,
 				3A89A014272A095200A1B3D3 /* SceneDelegate.swift */,
 				3A89A016272A095200A1B3D3 /* ViewController.swift */,
@@ -81,7 +82,6 @@
 				3A89A01B272A095300A1B3D3 /* Assets.xcassets */,
 				3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */,
 				3A89A020272A095300A1B3D3 /* Info.plist */,
-				60AA3CC5273522C2005119E9 /* GoogleService-Info.plist */,
 			);
 			path = Toss_Time;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 			files = (
 				3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */,
 				3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */,
-				60AA3CC6273522C2005119E9 /* GoogleService-Info.plist in Resources */,
+				60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */,
 				3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
 			);
