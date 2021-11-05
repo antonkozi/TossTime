@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		301374CDEA7D64C09D8B28E2 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */; };
+		3A389B922730B483001850EB /* infoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A389B912730B483001850EB /* infoWindow.swift */; };
+		3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A389B932730C9F3001850EB /* infoWindowView.xib */; };
+		3A389B982730D3BE001850EB /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A389B972730D3BE001850EB /* GreenViewController.swift */; };
 		3A89A013272A095200A1B3D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89A012272A095200A1B3D3 /* AppDelegate.swift */; };
 		3A89A015272A095200A1B3D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89A014272A095200A1B3D3 /* SceneDelegate.swift */; };
 		3A89A017272A095200A1B3D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89A016272A095200A1B3D3 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A389B912730B483001850EB /* infoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoWindow.swift; sourceTree = "<group>"; };
+		3A389B932730C9F3001850EB /* infoWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = infoWindowView.xib; sourceTree = "<group>"; };
+		3A389B972730D3BE001850EB /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		3A89A00F272A095200A1B3D3 /* Toss_Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toss_Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A89A012272A095200A1B3D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A89A014272A095200A1B3D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +72,9 @@
 				3A89A012272A095200A1B3D3 /* AppDelegate.swift */,
 				3A89A014272A095200A1B3D3 /* SceneDelegate.swift */,
 				3A89A016272A095200A1B3D3 /* ViewController.swift */,
+				3A389B972730D3BE001850EB /* GreenViewController.swift */,
+				3A389B912730B483001850EB /* infoWindow.swift */,
+				3A389B932730C9F3001850EB /* infoWindowView.xib */,
 				3A89A018272A095200A1B3D3 /* Main.storyboard */,
 				3A89A01B272A095300A1B3D3 /* Assets.xcassets */,
 				3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */,
@@ -88,7 +97,6 @@
 				55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */,
 				74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,6 +162,7 @@
 			files = (
 				3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */,
 				3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */,
+				3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +219,8 @@
 				3A89A017272A095200A1B3D3 /* ViewController.swift in Sources */,
 				3A89A013272A095200A1B3D3 /* AppDelegate.swift in Sources */,
 				3A89A015272A095200A1B3D3 /* SceneDelegate.swift in Sources */,
+				3A389B922730B483001850EB /* infoWindow.swift in Sources */,
+				3A389B982730D3BE001850EB /* GreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,11 +383,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "SinkedInc.Toss-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -401,11 +414,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "SinkedInc.Toss-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};
