@@ -20,7 +20,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     
     let locationManager = CLLocationManager()
-    //var tables: [GMSMarker] = []
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +47,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
 
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-    
         marker.title = "fsdafadsfasdfasd"
         marker.snippet = "Add a post"
         marker.map = mapView
