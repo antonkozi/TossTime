@@ -70,9 +70,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
         
-        vc.text = marker.title ?? "Not a valid marker"
+       // vc.text = marker.title ?? "Not a valid marker"
         navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     

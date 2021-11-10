@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>TossTime needs your coordinates to center the map</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>TossTime needs your coordinates to center the map</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -25,5 +21,13 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow TossTime to access your photos</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TossTime needs your coordinates to center the map</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>TossTime needs your coordinates to center the map</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ToosTime wants to use your photo library</string>
 </dict>
 </plist>
