@@ -21,6 +21,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     //@ObservedObject private var viewModel = TablesViewModel()
     
+    func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D){
+        let marker = GMSMarker()
+        marker.position = coordinate
+        marker.title = "fsdafadsfasdfasd"
+        marker.snippet = "Add a post"
+        marker.map = mapView
+        marker.tracksInfoWindowChanges = true
+    }
+    
     let locationManager = CLLocationManager()
     //var tables: [GMSMarker] = []
     override func viewDidLoad() {
@@ -34,7 +43,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    let data = document.data()
+                    let coord = CLLocationCoordinate2DMake(data["latitude"]  as! CLLocationDegrees,                                          data["longitude"] as! CLLocationDegrees)
+                    
+                    self.add_marker(mapView: self.myMap, coordinate: coord)
                 }
             }
         }
@@ -56,27 +68,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
    
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-        let lat = coordinate.latitude
-        let long = coordinate.longitude
-
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-    
-        marker.title = "fsdafadsfasdfasd"
-        marker.snippet = "Add a post"
-        marker.map = mapView
-        marker.tracksInfoWindowChanges = true
-//        tables.append(marker)
-        
-        let ref = Database.database().reference()
-        let comma_lat =  String(format: "%f", lat).replacingOccurrences(of: ".", with: ",")
-        let comma_long = String(format: "%f", long).replacingOccurrences(of: ".", with: ",")
-        ref.child(String(format: ("(%@,%@)"), comma_lat, comma_long)).setValue(
-            [
-                "Latitude":  comma_lat,
-                "Longitude": comma_long
-            ]
-        )
+        add_marker(mapView: mapView, coordinate: coordinate)
     }
     
     //TODO: Way to delete marker
