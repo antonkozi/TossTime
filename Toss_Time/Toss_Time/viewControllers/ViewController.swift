@@ -19,13 +19,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     public var completionHandler: ((String?) -> Void)?
     
-    
+    //@ObservedObject private var viewModel = TablesViewModel()
     
     let locationManager = CLLocationManager()
     //var tables: [GMSMarker] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let db = Firestore.firestore()
+        
+        //This bit of code here gives the tables and prints them to the console log
+        db.collection("Tables").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
         
         locationManager.delegate = self
         myMap.delegate = self
@@ -71,6 +83,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
+        
+        vc.setCoordinates(coord: marker.position)
         
        // vc.text = marker.title ?? "Not a valid marker"
         navigationController?.pushViewController(vc, animated: true)

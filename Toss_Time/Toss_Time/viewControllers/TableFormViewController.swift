@@ -12,6 +12,9 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class TableFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    var latitude = 0.0
+    var longitude = 0.0
+    
     @IBOutlet weak var TableOwnerTextField: UITextField!
     
     @IBOutlet weak var TableImage: UIImageView!
@@ -35,6 +38,11 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         imagePickerController.delegate = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setCoordinates(coord: CLLocationCoordinate2D){
+        latitude = coord.latitude
+        longitude = coord.longitude
     }
     
     @IBAction func uploadImage(_ sender: Any){
@@ -106,8 +114,7 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         
         let db = Firestore.firestore()
         
-        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": HouseRulesTextField.text!, "contactInfo" : ContactInfoTextField.text!])
-        
+        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["latitude": latitude, "longitude": longitude, "id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": HouseRulesTextField.text!, "contactInfo" : ContactInfoTextField.text!])
     }
     
 }
