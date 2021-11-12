@@ -18,6 +18,10 @@
 		3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01B272A095300A1B3D3 /* Assets.xcassets */; };
 		3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
+		CE9C1053273DE6FC001CF243 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C1052273DE6FC001CF243 /* User.swift */; };
+		CE9C1055273DE71E001CF243 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C1054273DE71E001CF243 /* Table.swift */; };
+		CE9C1058273DEB2B001CF243 /* TablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C1057273DEB2B001CF243 /* TablesViewModel.swift */; };
+		CE9C105B273DF7C8001CF243 /* TablesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C105A273DF7C8001CF243 /* TablesListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
 		944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE9C1052273DE6FC001CF243 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE9C1054273DE71E001CF243 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		CE9C1057273DEB2B001CF243 /* TablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesViewModel.swift; sourceTree = "<group>"; };
+		CE9C105A273DF7C8001CF243 /* TablesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +79,11 @@
 		3A89A011272A095200A1B3D3 /* Toss_Time */ = {
 			isa = PBXGroup;
 			children = (
+				CE9C1056273DEB0C001CF243 /* ViewModels */,
+				CE9C1051273DE6EC001CF243 /* Models */,
 				60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */,
 				3A89A012272A095200A1B3D3 /* AppDelegate.swift */,
+				CE9C105A273DF7C8001CF243 /* TablesListView.swift */,
 				3A89A014272A095200A1B3D3 /* SceneDelegate.swift */,
 				3A89A016272A095200A1B3D3 /* ViewController.swift */,
 				3A389B972730D3BE001850EB /* GreenViewController.swift */,
@@ -92,6 +103,23 @@
 				944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE9C1051273DE6EC001CF243 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C1052273DE6FC001CF243 /* User.swift */,
+				CE9C1054273DE71E001CF243 /* Table.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE9C1056273DEB0C001CF243 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C1057273DEB2B001CF243 /* TablesViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		DF362121A894E49CC36B1F4B /* Pods */ = {
@@ -239,10 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A89A017272A095200A1B3D3 /* ViewController.swift in Sources */,
+				CE9C1055273DE71E001CF243 /* Table.swift in Sources */,
 				3A89A013272A095200A1B3D3 /* AppDelegate.swift in Sources */,
+				CE9C105B273DF7C8001CF243 /* TablesListView.swift in Sources */,
+				CE9C1053273DE6FC001CF243 /* User.swift in Sources */,
 				3A89A015272A095200A1B3D3 /* SceneDelegate.swift in Sources */,
 				3A389B922730B483001850EB /* infoWindow.swift in Sources */,
 				3A389B982730D3BE001850EB /* GreenViewController.swift in Sources */,
+				CE9C1058273DEB2B001CF243 /* TablesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

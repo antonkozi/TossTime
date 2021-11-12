@@ -10,5 +10,6 @@ target 'Toss_Time' do
   
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 
 end
