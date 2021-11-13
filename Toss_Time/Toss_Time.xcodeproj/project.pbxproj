@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		301374CDEA7D64C09D8B28E2 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */; };
 		3A389B922730B483001850EB /* infoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A389B912730B483001850EB /* infoWindow.swift */; };
 		3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A389B932730C9F3001850EB /* infoWindowView.xib */; };
 		3A389B982730D3BE001850EB /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A389B972730D3BE001850EB /* GreenViewController.swift */; };
@@ -17,19 +16,27 @@
 		3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A018272A095200A1B3D3 /* Main.storyboard */; };
 		3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01B272A095300A1B3D3 /* Assets.xcassets */; };
 		3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */; };
+		3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */; };
 		3B2095EF2739B00D00AF3005 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2095EE2739B00D00AF3005 /* constants.swift */; };
 		3B2095F22739B63400AF3005 /* beerDieGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3B2095F12739B63300AF3005 /* beerDieGif.gif */; };
 		3B2095F42739B81B00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */; };
 		3B2095F6273B0BF700AF3005 /* TableFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2095F5273B0BF700AF3005 /* TableFormViewController.swift */; };
+		3B3FC89D273DF46A00775053 /* TossTimeMedium.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3FC89A273DF46700775053 /* TossTimeMedium.png */; };
+		3B3FC89E273DF46A00775053 /* TossTimeBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3FC89B273DF46900775053 /* TossTimeBig.png */; };
+		3B3FC89F273DF46A00775053 /* TossTimeSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3FC89C273DF46A00775053 /* TossTimeSmall.png */; };
 		3B44FA412735F26D002A8570 /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA402735F26D002A8570 /* signupViewController.swift */; };
 		3B44FA432735F28E002A8570 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA422735F28E002A8570 /* loginViewController.swift */; };
 		3B44FA4827360070002A8570 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA4727360070002A8570 /* Utilities.swift */; };
 		3B44FA4A2736033D002A8570 /* signLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA492736033D002A8570 /* signLogin.swift */; };
 		3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAC273B269A00CF3A57 /* uploadImage.png */; };
+		3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */; };
+		3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EB0273D998E00CF3A57 /* Table.swift */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
+		F69496EED161C382CDDC2078 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24D576013FB006591AAEE080 /* Pods-Toss_Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.debug.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.debug.xcconfig"; sourceTree = "<group>"; };
 		3A389B912730B483001850EB /* infoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoWindow.swift; sourceTree = "<group>"; };
 		3A389B932730C9F3001850EB /* infoWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = infoWindowView.xib; sourceTree = "<group>"; };
 		3A389B972730D3BE001850EB /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
@@ -41,19 +48,24 @@
 		3A89A01B272A095300A1B3D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A89A01E272A095300A1B3D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A89A020272A095300A1B3D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stacked-peaks-haikei.png"; sourceTree = "<group>"; };
 		3B2095EE2739B00D00AF3005 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		3B2095F12739B63300AF3005 /* beerDieGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = beerDieGif.gif; sourceTree = "<group>"; };
 		3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4"; sourceTree = "<group>"; };
 		3B2095F5273B0BF700AF3005 /* TableFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFormViewController.swift; sourceTree = "<group>"; };
+		3B3FC89A273DF46700775053 /* TossTimeMedium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TossTimeMedium.png; sourceTree = "<group>"; };
+		3B3FC89B273DF46900775053 /* TossTimeBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TossTimeBig.png; sourceTree = "<group>"; };
+		3B3FC89C273DF46A00775053 /* TossTimeSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TossTimeSmall.png; sourceTree = "<group>"; };
 		3B44FA402735F26D002A8570 /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		3B44FA422735F28E002A8570 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		3B44FA4727360070002A8570 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3B44FA492736033D002A8570 /* signLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signLogin.swift; sourceTree = "<group>"; };
 		3BFF4EAC273B269A00CF3A57 /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadImage.png; sourceTree = "<group>"; };
-		55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.debug.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.debug.xcconfig"; sourceTree = "<group>"; };
+		3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tablesViewModel.swift; sourceTree = "<group>"; };
+		3BFF4EB0273D998E00CF3A57 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
-		944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9AA90892A585A59EEA5A074 /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,20 +73,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				301374CDEA7D64C09D8B28E2 /* Pods_Toss_Time.framework in Frameworks */,
+				F69496EED161C382CDDC2078 /* Pods_Toss_Time.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04B5B40BEB767313F127B6D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A89A006272A095200A1B3D3 = {
 			isa = PBXGroup;
 			children = (
 				3A89A011272A095200A1B3D3 /* Toss_Time */,
 				3A89A010272A095200A1B3D3 /* Products */,
 				DF362121A894E49CC36B1F4B /* Pods */,
-				589C1C340A42185F564F7486 /* Frameworks */,
+				04B5B40BEB767313F127B6D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +128,10 @@
 		3B2095F02739B58400AF3005 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */,
+				3B3FC89B273DF46900775053 /* TossTimeBig.png */,
+				3B3FC89A273DF46700775053 /* TossTimeMedium.png */,
+				3B3FC89C273DF46A00775053 /* TossTimeSmall.png */,
 				3BFF4EAC273B269A00CF3A57 /* uploadImage.png */,
 				3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */,
 				3B2095F12739B63300AF3005 /* beerDieGif.gif */,
@@ -133,23 +157,17 @@
 			children = (
 				3B44FA4727360070002A8570 /* Utilities.swift */,
 				3B2095EE2739B00D00AF3005 /* constants.swift */,
+				3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */,
+				3BFF4EB0273D998E00CF3A57 /* Table.swift */,
 			);
 			path = helpers;
-			sourceTree = "<group>";
-		};
-		589C1C340A42185F564F7486 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				944D84F7B6D56BA5A5533A13 /* Pods_Toss_Time.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DF362121A894E49CC36B1F4B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */,
-				74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */,
+				24D576013FB006591AAEE080 /* Pods-Toss_Time.debug.xcconfig */,
+				F9AA90892A585A59EEA5A074 /* Pods-Toss_Time.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -161,12 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A89A023272A095300A1B3D3 /* Build configuration list for PBXNativeTarget "Toss_Time" */;
 			buildPhases = (
-				ADEF7DBA2E6CCE29D5C12184 /* [CP] Check Pods Manifest.lock */,
+				688CA619032131602D8DD8C1 /* [CP] Check Pods Manifest.lock */,
 				3A89A00B272A095200A1B3D3 /* Sources */,
 				3A89A00C272A095200A1B3D3 /* Frameworks */,
 				3A89A00D272A095200A1B3D3 /* Resources */,
-				5422005FD0DFB24246D75BAA /* [CP] Copy Pods Resources */,
-				14D65F9F28364C57551ABA02 /* [CP] Embed Pods Frameworks */,
+				975762F0181AF460DEAE4CB5 /* [CP] Embed Pods Frameworks */,
+				D8E2CF3DCCC286BA65ED499F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -215,7 +233,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3FC89D273DF46A00775053 /* TossTimeMedium.png in Resources */,
 				3B2095F42739B81B00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 in Resources */,
+				3B3FC89F273DF46A00775053 /* TossTimeSmall.png in Resources */,
+				3B3FC89E273DF46A00775053 /* TossTimeBig.png in Resources */,
 				3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */,
 				3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */,
 				3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */,
@@ -223,47 +244,14 @@
 				60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */,
 				3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
+				3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14D65F9F28364C57551ABA02 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5422005FD0DFB24246D75BAA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ADEF7DBA2E6CCE29D5C12184 /* [CP] Check Pods Manifest.lock */ = {
+		688CA619032131602D8DD8C1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -285,6 +273,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		975762F0181AF460DEAE4CB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8E2CF3DCCC286BA65ED499F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toss_Time/Pods-Toss_Time-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -295,11 +317,13 @@
 				3B44FA432735F28E002A8570 /* loginViewController.swift in Sources */,
 				3B2095F6273B0BF700AF3005 /* TableFormViewController.swift in Sources */,
 				3A89A017272A095200A1B3D3 /* ViewController.swift in Sources */,
+				3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */,
 				3A89A013272A095200A1B3D3 /* AppDelegate.swift in Sources */,
 				3B2095EF2739B00D00AF3005 /* constants.swift in Sources */,
 				3A89A015272A095200A1B3D3 /* SceneDelegate.swift in Sources */,
 				3B44FA4A2736033D002A8570 /* signLogin.swift in Sources */,
 				3A389B922730B483001850EB /* infoWindow.swift in Sources */,
+				3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */,
 				3B44FA412735F26D002A8570 /* signupViewController.swift in Sources */,
 				3B44FA4827360070002A8570 /* Utilities.swift in Sources */,
 				3A389B982730D3BE001850EB /* GreenViewController.swift in Sources */,
@@ -446,14 +470,16 @@
 		};
 		3A89A024272A095300A1B3D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55C51397B6F454789538C7A1 /* Pods-Toss_Time.debug.xcconfig */;
+			baseConfigurationReference = 24D576013FB006591AAEE080 /* Pods-Toss_Time.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4NVM3XTMZ7;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Toss_Time/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -477,14 +503,16 @@
 		};
 		3A89A025272A095300A1B3D3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74215F900F57196366EB59DA /* Pods-Toss_Time.release.xcconfig */;
+			baseConfigurationReference = F9AA90892A585A59EEA5A074 /* Pods-Toss_Time.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4NVM3XTMZ7;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Toss_Time/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

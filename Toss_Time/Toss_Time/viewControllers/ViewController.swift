@@ -9,7 +9,7 @@ import CoreLocation
 import GoogleMaps
 import UIKit
 import Firebase
-import FirebaseDatabase
+//import FirebaseDatabase
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
@@ -56,15 +56,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         marker.tracksInfoWindowChanges = true
 //        tables.append(marker)
         
-        let ref = Database.database().reference()
-        let comma_lat =  String(format: "%f", lat).replacingOccurrences(of: ".", with: ",")
-        let comma_long = String(format: "%f", long).replacingOccurrences(of: ".", with: ",")
-        ref.child(String(format: ("(%@,%@)"), comma_lat, comma_long)).setValue(
-            [
-                "Latitude":  comma_lat,
-                "Longitude": comma_long
-            ]
-        )
+//        let ref = Database.database().reference()
+//        let comma_lat =  String(format: "%f", lat).replacingOccurrences(of: ".", with: ",")
+//        let comma_long = String(format: "%f", long).replacingOccurrences(of: ".", with: ",")
+//        ref.child(String(format: ("(%@,%@)"), comma_lat, comma_long)).setValue(
+//            [
+//                "Latitude":  comma_lat,
+//                "Longitude": comma_long
+//            ]
+//        )
     }
     
     //TODO: Way to delete marker

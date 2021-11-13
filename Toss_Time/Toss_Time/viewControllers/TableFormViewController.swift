@@ -10,15 +10,17 @@ import Photos
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
-class TableFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class TableFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
     @IBOutlet weak var TableOwnerTextField: UITextField!
     
     @IBOutlet weak var TableImage: UIImageView!
     
     @IBOutlet weak var uploadImageButton: UIButton!
     
-    @IBOutlet weak var HouseRulesTextField: UITextField!
+    @IBOutlet weak var houseRulesTextView: UITextView!
+    
     
     @IBOutlet weak var ContactInfoTextField: UITextField!
     
@@ -27,12 +29,16 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var uploadImageFromLibraryButton: UIButton!
     
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     var imagePickerController = UIImagePickerController()
+    
+    private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
+        
 
         // Do any additional setup after loading the view.
     }
@@ -70,6 +76,33 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         else{
         TableImage?.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         }
+        guard let imageData = TableImage.image?.pngData() else{
+            return
+        }
+        
+       
+        
+        storage.child("images/\(Auth.auth().currentUser!.uid).png").putData(imageData, metadata: nil, completion: {_, error in
+            guard error == nil else{
+                print("Failed to upload")
+                return
+            }
+            
+            self.storage.child("images/\(Auth.auth().currentUser!.uid).png").downloadURL(completion: {url, error in
+                guard let url = url, error == nil else{
+                    return
+                }
+                
+                let db = Firestore.firestore()
+                db.collection("Photos").document(Auth.auth().currentUser!.uid).setData(["id": Auth.auth().currentUser!.uid])
+                let urlString = url.absoluteString
+                print("Download URL: \(urlString)")
+                
+                UserDefaults.standard.set(urlString, forKey: "url")
+            })
+            
+            
+        })
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -92,21 +125,14 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
     @IBAction func submitPressed(_ sender: Any) {
         //check everything is filled in
         
         let db = Firestore.firestore()
         
-        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": HouseRulesTextField.text!, "contactInfo" : ContactInfoTextField.text!])
+        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": houseRulesTextView.text!, "contactInfo" : ContactInfoTextField.text!])
         
     }
     
