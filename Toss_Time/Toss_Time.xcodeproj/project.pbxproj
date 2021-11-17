@@ -17,6 +17,7 @@
 		3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01B272A095300A1B3D3 /* Assets.xcassets */; };
 		3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */; };
 		3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */; };
+		3B0718BD27407A94007662BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0718BC27407A94007662BC /* EditViewController.swift */; };
 		3B2095EF2739B00D00AF3005 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2095EE2739B00D00AF3005 /* constants.swift */; };
 		3B2095F22739B63400AF3005 /* beerDieGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3B2095F12739B63300AF3005 /* beerDieGif.gif */; };
 		3B2095F42739B81B00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */; };
@@ -49,6 +50,7 @@
 		3A89A01E272A095300A1B3D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A89A020272A095300A1B3D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stacked-peaks-haikei.png"; sourceTree = "<group>"; };
+		3B0718BC27407A94007662BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		3B2095EE2739B00D00AF3005 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		3B2095F12739B63300AF3005 /* beerDieGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = beerDieGif.gif; sourceTree = "<group>"; };
 		3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				3A89A016272A095200A1B3D3 /* ViewController.swift */,
 				3B44FA492736033D002A8570 /* signLogin.swift */,
 				3B2095F5273B0BF700AF3005 /* TableFormViewController.swift */,
+				3B0718BC27407A94007662BC /* EditViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */,
 				3A89A013272A095200A1B3D3 /* AppDelegate.swift in Sources */,
 				3B2095EF2739B00D00AF3005 /* constants.swift in Sources */,
+				3B0718BD27407A94007662BC /* EditViewController.swift in Sources */,
 				3A89A015272A095200A1B3D3 /* SceneDelegate.swift in Sources */,
 				3B44FA4A2736033D002A8570 /* signLogin.swift in Sources */,
 				3A389B922730B483001850EB /* infoWindow.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftUI
 
 class loginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -53,12 +54,15 @@ class loginViewController: UIViewController {
             }
             else{
                 let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
-                
                 self.view.window?.rootViewController = mapViewController
-                self.view.window?.makeKeyAndVisible()
+                withAnimation {
+                    self.view.window?.makeKeyAndVisible()
+                }
+                
+                
+                
             }
+        
         }
-        
-        
     }
 }

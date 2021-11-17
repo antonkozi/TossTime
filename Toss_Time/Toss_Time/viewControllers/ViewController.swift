@@ -9,6 +9,7 @@ import CoreLocation
 import GoogleMaps
 import UIKit
 import Firebase
+import FirebaseAuth
 //import FirebaseDatabase
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
@@ -25,6 +26,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     //var tables: [GMSMarker] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Utilities.styleHollowButton(myTableButton)
+        
         
         
         locationManager.delegate = self
@@ -49,28 +53,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
 
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-    
-        marker.title = "fsdafadsfasdfasd"
-        marker.snippet = "Add a post"
+        
+        
+        marker.title = "Tap to View Table"
         marker.map = mapView
         marker.tracksInfoWindowChanges = true
-//        tables.append(marker)
-        
-//        let ref = Database.database().reference()
-//        let comma_lat =  String(format: "%f", lat).replacingOccurrences(of: ".", with: ",")
-//        let comma_long = String(format: "%f", long).replacingOccurrences(of: ".", with: ",")
-//        ref.child(String(format: ("(%@,%@)"), comma_lat, comma_long)).setValue(
-//            [
-//                "Latitude":  comma_lat,
-//                "Longitude": comma_long
-//            ]
-//        )
     }
     
     //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
         
        // vc.text = marker.title ?? "Not a valid marker"
         navigationController?.pushViewController(vc, animated: true)
@@ -118,5 +111,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
-    
 }

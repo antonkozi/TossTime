@@ -10,5 +10,7 @@ import Foundation
 struct Constants{
     struct Storboard{
         static let mapController = "map_vc"
+        static let editController = "edit"
+        static let tableController = "green_vc"
     }
 }
