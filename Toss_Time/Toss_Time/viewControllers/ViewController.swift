@@ -20,38 +20,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     public var completionHandler: ((String?) -> Void)?
     
-    //@ObservedObject private var viewModel = TablesViewModel()
     
-    func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D){
-        let marker = GMSMarker()
-        marker.position = coordinate
-        marker.title = "fsdafadsfasdfasd"
-        marker.snippet = "Add a post"
-        marker.map = mapView
-        marker.tracksInfoWindowChanges = true
-    }
     
     let locationManager = CLLocationManager()
     //var tables: [GMSMarker] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let db = Firestore.firestore()
+        //Utilities.styleHollowButton(myTableButton)
         
-        //This bit of code here gives the tables and prints them to the console log
-        db.collection("Tables").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let data = document.data()
-                    let coord = CLLocationCoordinate2DMake(data["latitude"]  as! CLLocationDegrees,                                          data["longitude"] as! CLLocationDegrees)
-                    
-                    self.add_marker(mapView: self.myMap, coordinate: coord)
-                }
-            }
-        }
-
+        
+        
         locationManager.delegate = self
         myMap.delegate = self
         
@@ -69,7 +48,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
    
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-
         let lat = coordinate.latitude
         let long = coordinate.longitude
 
@@ -80,17 +58,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         marker.title = "Tap to View Table"
         marker.map = mapView
         marker.tracksInfoWindowChanges = true
-
-        add_marker(mapView: mapView, coordinate: coordinate)
-
     }
     
     //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
-        
-        vc.setCoordinates(coord: marker.position)
         
        // vc.text = marker.title ?? "Not a valid marker"
         navigationController?.pushViewController(vc, animated: true)
