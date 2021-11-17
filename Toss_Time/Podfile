@@ -7,8 +7,11 @@ target 'Toss_Time' do
 
   # Pods for Toss_Time
   pod 'GoogleMaps', '5.2.0'
-  
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+
+
+
 
 end
