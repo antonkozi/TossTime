@@ -55,7 +55,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="uvm-BJ-hBx">
-                                <rect key="frame" x="50" y="94" width="314" height="723.5"/>
+                                <rect key="frame" x="50" y="94" width="314" height="742.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Table Owner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SkX-lD-Bcp">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
@@ -134,14 +134,42 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMC-ob-8cF">
-                                        <rect key="frame" x="0.0" y="692.5" width="314" height="31"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <buttonConfiguration key="configuration" style="plain" title=" Post Table"/>
-                                        <connections>
-                                            <action selector="submitPressed:" destination="xWG-R1-aYN" eventType="touchUpInside" id="f4e-wq-hpB"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdH-1Z-b3E">
+                                        <rect key="frame" x="0.0" y="692.5" width="314" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-kG-utj">
+                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="50"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="deleteTapped:" destination="xWG-R1-aYN" eventType="touchUpInside" id="mJc-Xz-nsh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMC-ob-8cF">
+                                                <rect key="frame" x="104.5" y="0.0" width="105" height="50"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="submitPressed:" destination="xWG-R1-aYN" eventType="touchUpInside" id="f4e-wq-hpB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3O-T4-cj4">
+                                                <rect key="frame" x="209.5" y="0.0" width="104.5" height="50"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="editTapped:" destination="xWG-R1-aYN" eventType="touchUpInside" id="Mtn-um-Hli"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8u4-18-ZAv"/>
+                                            <constraint firstItem="s3O-T4-cj4" firstAttribute="width" secondItem="NgR-kG-utj" secondAttribute="width" id="iwj-5h-o6r"/>
+                                            <constraint firstItem="vMC-ob-8cF" firstAttribute="width" secondItem="NgR-kG-utj" secondAttribute="width" id="r7C-AE-uEe"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5wl-rh-i8m" firstAttribute="top" secondItem="CZ0-mh-b8W" secondAttribute="bottom" constant="28" id="lh0-0w-sQP"/>
@@ -163,6 +191,7 @@
                             <constraint firstItem="uvm-BJ-hBx" firstAttribute="top" secondItem="bZu-wK-9O3" secondAttribute="top" constant="50" id="nBK-7u-QMa"/>
                             <constraint firstItem="uvm-BJ-hBx" firstAttribute="leading" secondItem="bZu-wK-9O3" secondAttribute="leading" constant="50" id="oLI-eP-Xp2"/>
                             <constraint firstItem="hPb-5Q-wNB" firstAttribute="leading" secondItem="bZu-wK-9O3" secondAttribute="leading" constant="20" id="pIA-6S-W7h"/>
+                            <constraint firstItem="bZu-wK-9O3" firstAttribute="bottom" secondItem="uvm-BJ-hBx" secondAttribute="bottom" constant="25.5" id="y37-Gx-Igb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QMD-We-AWC"/>
@@ -172,6 +201,8 @@
                         <outlet property="TableImage" destination="UhH-H5-Wb5" id="Nde-ho-3Aj"/>
                         <outlet property="TableOwnerTextField" destination="SkX-lD-Bcp" id="xSl-FT-tNN"/>
                         <outlet property="backgroundImage" destination="cGF-I2-eyB" id="hff-rM-ZJz"/>
+                        <outlet property="deleteButton" destination="NgR-kG-utj" id="SU0-QY-4x4"/>
+                        <outlet property="editButton" destination="s3O-T4-cj4" id="eqd-Gh-VbK"/>
                         <outlet property="houseRulesTextView" destination="CZ0-mh-b8W" id="PhQ-eb-Bwt"/>
                         <outlet property="uploadImageButton" destination="W7G-GU-vMg" id="a4i-YQ-UVi"/>
                         <outlet property="uploadImageFromLibraryButton" destination="cp4-Tp-W8B" id="znv-Bu-Dbc"/>

@@ -15,26 +15,20 @@ import FirebaseStorage
 
 class TableFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
     
+    @IBOutlet weak var TableOwnerTextField: UITextField!
+    @IBOutlet weak var TableImage: UIImageView!
+    @IBOutlet weak var uploadImageButton: UIButton!
+    @IBOutlet weak var houseRulesTextView: UITextView!
+    @IBOutlet weak var ContactInfoTextField: UITextField!
+    @IBOutlet weak var SubmitButtonTextField: UIButton!
+    @IBOutlet weak var uploadImageFromLibraryButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     var latitude = 0.0
     var longitude = 0.0
-    
-    @IBOutlet weak var TableOwnerTextField: UITextField!
-    
-    @IBOutlet weak var TableImage: UIImageView!
-    
-    @IBOutlet weak var uploadImageButton: UIButton!
-    
-    @IBOutlet weak var houseRulesTextView: UITextView!
-    
-    @IBOutlet weak var ContactInfoTextField: UITextField!
-    
-    @IBOutlet weak var SubmitButtonTextField: UIButton!
-    
-    @IBOutlet weak var uploadImageFromLibraryButton: UIButton!
-    
-    
-    @IBOutlet weak var backgroundImage: UIImageView!
-    
+    var markerToLoad = ""
     var imagePickerController = UIImagePickerController()
     
     private let storage = Storage.storage().reference()
@@ -42,40 +36,40 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
-        
+        setElements()
+    }
+    
+    
+    func setElements(){
+        let db = Firestore.firestore()
+        db.collection("Tables").document(markerToLoad).getDocument { (doc, err) in
+                if let doc = doc, doc.exists {
 
-        // Do any additional setup after loading the view.
+                    let docData = doc.data()
+                    let owner = docData!["owner"] as? String ?? ""
+                    let houseRules = docData!["houseRules"] as? String ?? ""
+                    let contactInfo = docData!["contactInfo"] as? String ?? ""
+
+                    self.TableOwnerTextField.text = owner
+                    self.houseRulesTextView.text = houseRules
+                    self.ContactInfoTextField.text = contactInfo
+
+
+                }
+            else{
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func checkUser(){
+        
     }
     
     func setCoordinates(coord: CLLocationCoordinate2D){
             latitude = coord.latitude
             longitude = coord.longitude
         }
-    
-    @IBAction func uploadImage(_ sender: Any){
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let alertController = UIAlertController(title: nil, message: "Device has no camera.", preferredStyle: .alert)
-
-            let okAction = UIAlertAction(title: "Go Back", style: .default, handler: { (alert: UIAlertAction!) in
-            })
-
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-        } else {
-            // Other action
-            let picker = UIImagePickerController()
-            picker.sourceType = .camera
-            picker.allowsEditing = true
-            picker.delegate = self
-            present(picker, animated: true)
-        }
-        
-    }
-    
-    @IBAction func uploadImageFromLibrary(_ sender: Any){
-        self.imagePickerController.sourceType = .photoLibrary
-        self.present(self.imagePickerController, animated: true, completion: nil)
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if picker.sourceType == .photoLibrary{
@@ -115,8 +109,6 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         picker.dismiss(animated: true, completion: nil)
     }
     
-    
-    
     func checkPermissions(){
         if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {
             PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) -> Void in ()})
@@ -136,8 +128,32 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
+    @IBAction func uploadImage(_ sender: Any){
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let alertController = UIAlertController(title: nil, message: "Device has no camera.", preferredStyle: .alert)
 
+            let okAction = UIAlertAction(title: "Go Back", style: .default, handler: { (alert: UIAlertAction!) in
+            })
 
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            // Other action
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.allowsEditing = true
+            picker.delegate = self
+            present(picker, animated: true)
+        }
+        
+    }
+    
+    @IBAction func uploadImageFromLibrary(_ sender: Any){
+        self.imagePickerController.sourceType = .photoLibrary
+        self.present(self.imagePickerController, animated: true, completion: nil)
+    }
+    
+   
     @IBAction func submitPressed(_ sender: Any) {
         //TODO: check everything is filled in
         
@@ -152,5 +168,13 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         }
         
     }
+    
+    
+    @IBAction func editTapped(_ sender: Any) {
+    }
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+    }
+    
     
 }

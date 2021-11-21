@@ -38,8 +38,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     let coord = CLLocationCoordinate2DMake(data["latitude"]  as! CLLocationDegrees,                                          data["longitude"] as! CLLocationDegrees)
+                    let id = data["id"]
                     
-                    self.add_marker(mapView: self.myMap, coordinate: coord)
+                    self.add_marker(mapView: self.myMap, coordinate: coord, id: id as! String)
                 }
             }
         }
@@ -67,7 +68,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         marker.title = "Tap to View Table"
         marker.map = mapView
+        marker.userData = Auth.auth().currentUser!.uid
         marker.tracksInfoWindowChanges = true
+        
+        
     }
     
     //TODO: Way to delete marker
@@ -76,6 +80,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
                 
         vc.setCoordinates(coord: marker.position)
+        vc.markerToLoad = marker.userData as! String
         
         navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
@@ -115,12 +120,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         }
     }
     
-    func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D){
+    func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D, id: String){
            let marker = GMSMarker()
            marker.position = coordinate
-           marker.title = "fsdafadsfasdfasd"
-           marker.snippet = "Add a post"
+           marker.title = "Tap to View Table"
            marker.map = mapView
+           marker.userData = id
            marker.tracksInfoWindowChanges = true
        }
     
