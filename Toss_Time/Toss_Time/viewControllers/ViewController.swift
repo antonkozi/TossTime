@@ -37,16 +37,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         if CLLocationManager.locationServicesEnabled(){
             locationManager.requestLocation()
             myMap.settings.zoomGestures=true
+            myMap.settings.myLocationButton = true
         }
         else{
             locationManager.requestWhenInUseAuthorization()
         }
-       
+        // Create image
+        let image = UIImage(named: "tables.png")
+        
+        let button = UIButton(type: UIButton.ButtonType.custom)
+        // Screen Sizes
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        button.frame = CGRect(x: ((2*screenWidth)/3)+75, y: (6.5*screenHeight)/8, width: 50, height: 50)
+        button.setImage(image, for: UIControl.State.normal)
+        button.addTarget(self, action:#selector(self.imageButtonTapped(_:)), for: .touchUpInside)
+        button.setTitle("Button", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        self.view.addSubview(button)
         //print("licenseL \n\n\(GMSServices.openSourceLicenseInfo())")
     }
-    
+    @objc func imageButtonTapped(_ sender:UIButton!)
+    {
+        let tables = storyboard?.instantiateViewController(withIdentifier: "tables_view") as! TableViewController
+        
+       // vc.text = marker.title ?? "Not a valid marker"
+        navigationController?.pushViewController(tables, animated: true)
+        present(tables, animated: true)
+    }
    
-    
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let lat = coordinate.latitude
         let long = coordinate.longitude
@@ -76,9 +95,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // defaults to santa cruz
         myMap.camera = GMSCameraPosition(
-            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
-            zoom: 8,
+            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 36.974117, longitude: locationManager.location?.coordinate.longitude ?? -122.030792),
+            zoom: 15,
             bearing: 0,
             viewingAngle: 0)
     

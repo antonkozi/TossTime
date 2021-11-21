@@ -33,6 +33,8 @@
 		3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */; };
 		3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EB0273D998E00CF3A57 /* Table.swift */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
+		DD460FD8274AF421004A4D97 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD460FD7274AF421004A4D97 /* TableViewController.swift */; };
+		DD460FDA274AF4A7004A4D97 /* tables.png in Resources */ = {isa = PBXBuildFile; fileRef = DD460FD9274AF4A7004A4D97 /* tables.png */; };
 		F69496EED161C382CDDC2078 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		3BFF4EB0273D998E00CF3A57 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD460FD7274AF421004A4D97 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = "../../../../../../cse115 files/TableViewController.swift"; sourceTree = "<group>"; };
+		DD460FD9274AF4A7004A4D97 /* tables.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tables.png; sourceTree = "<group>"; };
 		F9AA90892A585A59EEA5A074 /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +140,7 @@
 				3B3FC89C273DF46A00775053 /* TossTimeSmall.png */,
 				3BFF4EAC273B269A00CF3A57 /* uploadImage.png */,
 				3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */,
+				DD460FD9274AF4A7004A4D97 /* tables.png */,
 				3B2095F12739B63300AF3005 /* beerDieGif.gif */,
 			);
 			path = Media;
@@ -144,6 +149,7 @@
 		3B44FA442735FE3B002A8570 /* viewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD460FD7274AF421004A4D97 /* TableViewController.swift */,
 				3A389B972730D3BE001850EB /* GreenViewController.swift */,
 				3B44FA402735F26D002A8570 /* signupViewController.swift */,
 				3B44FA422735F28E002A8570 /* loginViewController.swift */,
@@ -246,6 +252,7 @@
 				3B2095F22739B63400AF3005 /* beerDieGif.gif in Resources */,
 				60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */,
 				3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */,
+				DD460FDA274AF4A7004A4D97 /* tables.png in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
 				3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */,
 			);
@@ -330,6 +337,7 @@
 				3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */,
 				3B44FA412735F26D002A8570 /* signupViewController.swift in Sources */,
 				3B44FA4827360070002A8570 /* Utilities.swift in Sources */,
+				DD460FD8274AF421004A4D97 /* TableViewController.swift in Sources */,
 				3A389B982730D3BE001850EB /* GreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
