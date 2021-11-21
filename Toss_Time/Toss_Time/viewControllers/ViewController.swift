@@ -23,16 +23,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     
     let locationManager = CLLocationManager()
-    //var tables: [GMSMarker] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Utilities.styleHollowButton(myTableButton)
-        
-        
-        
         locationManager.delegate = self
         myMap.delegate = self
+        
+        let db = Firestore.firestore()
+                
+        //This bit of code here gives the tables and prints them to the console log
+        db.collection("Tables").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let coord = CLLocationCoordinate2DMake(data["latitude"]  as! CLLocationDegrees,                                          data["longitude"] as! CLLocationDegrees)
+                    
+                    self.add_marker(mapView: self.myMap, coordinate: coord)
+                }
+            }
+        }
         
         if CLLocationManager.locationServicesEnabled(){
             locationManager.requestLocation()
@@ -42,7 +52,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             locationManager.requestWhenInUseAuthorization()
         }
        
-        //print("licenseL \n\n\(GMSServices.openSourceLicenseInfo())")
+        print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     
    
@@ -63,17 +73,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
+                
+        vc.setCoordinates(coord: marker.position)
         
-       // vc.text = marker.title ?? "Not a valid marker"
         navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     
     }
-    
-    //TODO: Custom Info window
-    
-    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         myMap.camera = GMSCameraPosition(
@@ -107,6 +114,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             locationManager.requestWhenInUseAuthorization()
         }
     }
+    
+    func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D){
+           let marker = GMSMarker()
+           marker.position = coordinate
+           marker.title = "fsdafadsfasdfasd"
+           marker.snippet = "Add a post"
+           marker.map = mapView
+           marker.tracksInfoWindowChanges = true
+       }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)

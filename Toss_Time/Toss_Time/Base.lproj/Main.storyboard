@@ -140,7 +140,6 @@
                                         <buttonConfiguration key="configuration" style="plain" title=" Post Table"/>
                                         <connections>
                                             <action selector="submitPressed:" destination="xWG-R1-aYN" eventType="touchUpInside" id="f4e-wq-hpB"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="M5L-Qo-60C"/>
                                         </connections>
                                     </button>
                                 </subviews>

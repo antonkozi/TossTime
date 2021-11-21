@@ -5,6 +5,7 @@
 //  Created by Anton Kozintsev on 11/9/21.
 //
 
+import SwiftUI
 import UIKit
 import Photos
 import Firebase
@@ -13,6 +14,10 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class TableFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
+    
+    var latitude = 0.0
+    var longitude = 0.0
+    
     @IBOutlet weak var TableOwnerTextField: UITextField!
     
     @IBOutlet weak var TableImage: UIImageView!
@@ -20,7 +25,6 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var uploadImageButton: UIButton!
     
     @IBOutlet weak var houseRulesTextView: UITextView!
-    
     
     @IBOutlet weak var ContactInfoTextField: UITextField!
     
@@ -42,6 +46,11 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
 
         // Do any additional setup after loading the view.
     }
+    
+    func setCoordinates(coord: CLLocationCoordinate2D){
+            latitude = coord.latitude
+            longitude = coord.longitude
+        }
     
     @IBAction func uploadImage(_ sender: Any){
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -106,6 +115,8 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    
     func checkPermissions(){
         if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {
             PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) -> Void in ()})
@@ -128,11 +139,17 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
 
 
     @IBAction func submitPressed(_ sender: Any) {
-        //check everything is filled in
+        //TODO: check everything is filled in
         
         let db = Firestore.firestore()
         
-        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": houseRulesTextView.text!, "contactInfo" : ContactInfoTextField.text!])
+        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["latitude": latitude, "longitude": longitude, "id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": houseRulesTextView.text!, "contactInfo" : ContactInfoTextField.text!])
+        
+        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
+        self.view.window?.rootViewController = mapViewController
+        withAnimation {
+            self.view.window?.makeKeyAndVisible()
+        }
         
     }
     
