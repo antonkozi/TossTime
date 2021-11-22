@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xqg-lS-Id4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xqg-lS-Id4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,18 +23,29 @@
                                     <constraint firstAttribute="height" constant="896" id="cfh-I8-krN"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgP-8o-gkO">
+                                <rect key="frame" x="310" y="772" width="84" height="70"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="addTableButton"/>
+                                <connections>
+                                    <action selector="add_table:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTa-Uh-M1P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BGX-pH-DBP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3Cf-P1-hDx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LgP-8o-gkO" secondAttribute="trailing" constant="20" id="5xo-hQ-eNv"/>
                             <constraint firstAttribute="bottom" secondItem="BGX-pH-DBP" secondAttribute="bottom" id="PYg-Oh-FL1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LgP-8o-gkO" secondAttribute="bottom" constant="20" id="QtN-zp-zHj"/>
                             <constraint firstItem="BGX-pH-DBP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bUQ-p0-nj3"/>
                             <constraint firstItem="BGX-pH-DBP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xok-OS-erO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zv6-xT-IuM"/>
                     <connections>
+                        <outlet property="add_table" destination="LgP-8o-gkO" id="s9k-sg-h2r"/>
                         <outlet property="myMap" destination="BGX-pH-DBP" id="UQz-cn-VM2"/>
                     </connections>
                 </viewController>
@@ -754,6 +765,7 @@
     </scenes>
     <resources>
         <image name="TossTimeBig.png" width="1600" height="1200"/>
+        <image name="addTableButton" width="60" height="56"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
