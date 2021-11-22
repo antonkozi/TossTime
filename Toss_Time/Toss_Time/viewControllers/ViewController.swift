@@ -27,10 +27,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        myMap.isMyLocationEnabled = true
         myMap.delegate = self
-        
-        print("TEST")
-        
+       
         let db = Firestore.firestore()
                 
         // This bit of code here gets the lat & long of tables, and adds map markers for them
@@ -94,11 +93,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        myMap.camera = GMSCameraPosition(
+        
+        let camera = GMSCameraPosition(
             target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
             zoom: 8,
             bearing: 0,
             viewingAngle: 0)
+        myMap.animate(to: camera)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
