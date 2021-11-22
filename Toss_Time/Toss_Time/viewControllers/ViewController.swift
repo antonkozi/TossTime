@@ -116,7 +116,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         let camera = GMSCameraPosition(
             target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
-            zoom: 20,
+            zoom: 18,
             bearing: 0,
             viewingAngle: 0)
         myMap.animate(to: camera)
