@@ -45,17 +45,6 @@ class signupViewController: UIViewController {
     
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     //Check the fields and validate that the data is correct. If everything is correct this method returns nil otherwise it reutrns an error message
     func validateFields() -> String? {
         //Check that all fields are filled in
@@ -63,6 +52,8 @@ class signupViewController: UIViewController {
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
             return "Please fill in all fields"
         }
+        
+        //TODO: check that the email is not already in use
         
         //check if password is secure
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -72,6 +63,7 @@ class signupViewController: UIViewController {
         }
         
         return nil
+    
     }
     
     @IBAction func signUpTapped(_ sender: Any) {

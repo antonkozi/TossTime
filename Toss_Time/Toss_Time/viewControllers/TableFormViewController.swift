@@ -5,6 +5,7 @@
 //  Created by Anton Kozintsev on 11/9/21.
 //
 
+import SwiftUI
 import UIKit
 import Photos
 import Firebase
@@ -13,24 +14,21 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class TableFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
+    
     @IBOutlet weak var TableOwnerTextField: UITextField!
-    
     @IBOutlet weak var TableImage: UIImageView!
-    
     @IBOutlet weak var uploadImageButton: UIButton!
-    
     @IBOutlet weak var houseRulesTextView: UITextView!
-    
-    
     @IBOutlet weak var ContactInfoTextField: UITextField!
-    
     @IBOutlet weak var SubmitButtonTextField: UIButton!
-    
     @IBOutlet weak var uploadImageFromLibraryButton: UIButton!
-    
-    
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
     
+    var latitude = 0.0
+    var longitude = 0.0
+    var markerToLoad = ""
     var imagePickerController = UIImagePickerController()
     
     private let storage = Storage.storage().reference()
@@ -38,35 +36,85 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
-        
-
-        // Do any additional setup after loading the view.
+        //set the fields of the table
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+              let url = URL(string: urlString)
+        else{
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.TableImage.image = image
+            }
+            
+        }
+        task.resume()
+        setElements()
     }
     
-    @IBAction func uploadImage(_ sender: Any){
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let alertController = UIAlertController(title: nil, message: "Device has no camera.", preferredStyle: .alert)
+    
+    func setElements(){
+        //create database instance and retrieve table info for the marker that was clicked on
+        let db = Firestore.firestore()
+        db.collection("Tables").document(markerToLoad).getDocument { (doc, err) in
+                if let doc = doc, doc.exists {
 
-            let okAction = UIAlertAction(title: "Go Back", style: .default, handler: { (alert: UIAlertAction!) in
-            })
+                    let docData = doc.data()
+                    let owner = docData!["owner"] as? String ?? ""
+                    let houseRules = docData!["houseRules"] as? String ?? ""
+                    let contactInfo = docData!["contactInfo"] as? String ?? ""
+                    let id = docData!["id"] as? String ?? ""
 
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-        } else {
-            // Other action
-            let picker = UIImagePickerController()
-            picker.sourceType = .camera
-            picker.allowsEditing = true
-            picker.delegate = self
-            present(picker, animated: true)
+                    //set text fields
+                    self.TableOwnerTextField.text = owner
+                    self.houseRulesTextView.text = houseRules
+                    self.ContactInfoTextField.text = contactInfo
+                    
+                    self.TableOwnerTextField.isUserInteractionEnabled = false
+                    self.ContactInfoTextField.isUserInteractionEnabled = false
+                    self.houseRulesTextView.isUserInteractionEnabled = false
+                    
+                    //If the table does not belong to the current user, dont allow the to change anything
+                    if self.isAuthor(id: id) == false{
+                        self.deleteButton.isUserInteractionEnabled = false
+                        self.editButton.isUserInteractionEnabled = false
+                        self.SubmitButtonTextField.isUserInteractionEnabled = false
+                        self.SubmitButtonTextField.alpha = 0
+                        self.editButton.alpha = 0
+                        self.deleteButton.alpha = 0
+                        
+                    }
+                    
+                }
+            else{
+                
+                //TODO: Bring user back to the map
+                
+                print("Document does not exist")
+            }
         }
         
+       
+        
     }
     
-    @IBAction func uploadImageFromLibrary(_ sender: Any){
-        self.imagePickerController.sourceType = .photoLibrary
-        self.present(self.imagePickerController, animated: true, completion: nil)
+    func isAuthor(id: String) -> Bool{
+        if Auth.auth().currentUser!.uid == id{
+            return true
+        }
+        return false
+        
     }
+    
+    func setCoordinates(coord: CLLocationCoordinate2D){
+            latitude = coord.latitude
+            longitude = coord.longitude
+        }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if picker.sourceType == .photoLibrary{
@@ -125,15 +173,95 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
+    @IBAction func uploadImage(_ sender: Any){
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let alertController = UIAlertController(title: nil, message: "Device has no camera.", preferredStyle: .alert)
 
+            let okAction = UIAlertAction(title: "Go Back", style: .default, handler: { (alert: UIAlertAction!) in
+            })
 
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            // Other action
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.allowsEditing = true
+            picker.delegate = self
+            present(picker, animated: true)
+        }
+        
+    }
+    
+    @IBAction func uploadImageFromLibrary(_ sender: Any){
+        self.imagePickerController.sourceType = .photoLibrary
+        self.present(self.imagePickerController, animated: true, completion: nil)
+    }
+    
+   
     @IBAction func submitPressed(_ sender: Any) {
-        //check everything is filled in
+        //TODO: check everything is filled in
         
         let db = Firestore.firestore()
         
-        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": houseRulesTextView.text!, "contactInfo" : ContactInfoTextField.text!])
+        db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["latitude": latitude, "longitude": longitude, "id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": houseRulesTextView.text!, "contactInfo" : ContactInfoTextField.text!])
         
+        self.TableOwnerTextField.isUserInteractionEnabled = false
+        self.houseRulesTextView.isUserInteractionEnabled = false
+        self.ContactInfoTextField.isUserInteractionEnabled = false
+        
+        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
+        self.view.window?.rootViewController = mapViewController
+        withAnimation {
+            self.view.window?.makeKeyAndVisible()
+        }
+        
+        
+        
+    }
+    
+    @IBAction func editTapped(_ sender: Any) {
+        TableOwnerTextField.isUserInteractionEnabled = true
+        ContactInfoTextField.isUserInteractionEnabled = true
+        houseRulesTextView.isUserInteractionEnabled = true
+        
+    }
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+        showActionSheet()
+    }
+    
+    func showActionSheet(){
+        
+        let actionSheet = UIAlertController(title: "Delete Table", message: "Are you sure you want to delete this table?", preferredStyle: .alert)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel ", style: .default, handler: { action in
+            print("Tapped Cancel")
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            print("Tapped Delete")
+            
+            let coord = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+            
+            let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
+            
+            // mapview can delete the marker from map & database
+            mapViewController?.remove_marker(coordinate: coord)
+            
+            self.transitionToHome()
+            
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    func transitionToHome(){
+        
+        let mapViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
+        
+        view.window?.rootViewController = mapViewController
+        view.window?.makeKeyAndVisible()
     }
     
 }
