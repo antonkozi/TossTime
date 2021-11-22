@@ -33,7 +33,7 @@
 		3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */; };
 		3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EB0273D998E00CF3A57 /* Table.swift */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
-		DD460FD8274AF421004A4D97 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD460FD7274AF421004A4D97 /* TableViewController.swift */; };
+		DD1341A6274C62A90093B1C4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1341A5274C62A90093B1C4 /* TableViewController.swift */; };
 		DD460FDA274AF4A7004A4D97 /* tables.png in Resources */ = {isa = PBXBuildFile; fileRef = DD460FD9274AF4A7004A4D97 /* tables.png */; };
 		F69496EED161C382CDDC2078 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,7 @@
 		3BFF4EB0273D998E00CF3A57 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD460FD7274AF421004A4D97 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = "../../../../../../cse115 files/TableViewController.swift"; sourceTree = "<group>"; };
+		DD1341A5274C62A90093B1C4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DD460FD9274AF4A7004A4D97 /* tables.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tables.png; sourceTree = "<group>"; };
 		F9AA90892A585A59EEA5A074 /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,7 +149,7 @@
 		3B44FA442735FE3B002A8570 /* viewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD460FD7274AF421004A4D97 /* TableViewController.swift */,
+				DD1341A5274C62A90093B1C4 /* TableViewController.swift */,
 				3A389B972730D3BE001850EB /* GreenViewController.swift */,
 				3B44FA402735F26D002A8570 /* signupViewController.swift */,
 				3B44FA422735F28E002A8570 /* loginViewController.swift */,
@@ -335,9 +335,9 @@
 				3B44FA4A2736033D002A8570 /* signLogin.swift in Sources */,
 				3A389B922730B483001850EB /* infoWindow.swift in Sources */,
 				3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */,
+				DD1341A6274C62A90093B1C4 /* TableViewController.swift in Sources */,
 				3B44FA412735F26D002A8570 /* signupViewController.swift in Sources */,
 				3B44FA4827360070002A8570 /* Utilities.swift in Sources */,
-				DD460FD8274AF421004A4D97 /* TableViewController.swift in Sources */,
 				3A389B982730D3BE001850EB /* GreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
