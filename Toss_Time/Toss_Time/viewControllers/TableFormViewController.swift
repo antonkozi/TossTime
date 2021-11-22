@@ -228,7 +228,40 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
+        showActionSheet()
     }
     
+    func showActionSheet(){
+        
+        let actionSheet = UIAlertController(title: "Delete Table", message: "Are you sure you want to delete this table?", preferredStyle: .alert)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel ", style: .default, handler: { action in
+            print("Tapped Cancel")
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            print("Tapped Delete")
+            
+            let coord = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+            
+            let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
+            
+            // mapview can delete the marker from map & database
+            mapViewController?.remove_marker(coordinate: coord)
+            
+            self.transitionToHome()
+            
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    func transitionToHome(){
+        
+        let mapViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
+        
+        view.window?.rootViewController = mapViewController
+        view.window?.makeKeyAndVisible()
+    }
     
 }

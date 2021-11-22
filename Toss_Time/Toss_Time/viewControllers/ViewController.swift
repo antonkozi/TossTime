@@ -12,6 +12,9 @@ import Firebase
 import FirebaseAuth
 //import FirebaseDatabase
 
+var allMarkers = Array<GMSMarker>()
+var toRemove = CLLocationCoordinate2D()
+
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
     var text:String = ""
@@ -20,26 +23,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     public var completionHandler: ((String?) -> Void)?
     
-    
-    
     let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         myMap.delegate = self
         
+        print("TEST")
+        
         let db = Firestore.firestore()
                 
-        //This bit of code here gives the tables and prints them to the console log
+        // This bit of code here gets the lat & long of tables, and adds map markers for them
         db.collection("Tables").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
-                    let coord = CLLocationCoordinate2DMake(data["latitude"]  as! CLLocationDegrees,                                          data["longitude"] as! CLLocationDegrees)
+                    let lat = data["latitude"]  as! CLLocationDegrees
+                    let lon = data["longitude"] as! CLLocationDegrees
+                    let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                     let id = data["id"]
                     
+                    if ((lat == toRemove.latitude) && (lon == toRemove.longitude)) { continue }
                     self.add_marker(mapView: self.myMap, coordinate: coord, id: id as! String)
                 }
             }
@@ -113,13 +119,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
     func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D, id: String){
-           let marker = GMSMarker()
-           marker.position = coordinate
-           marker.title = "Tap to View Table"
-           marker.map = mapView
-           marker.userData = id
-           marker.tracksInfoWindowChanges = true
-       }
+        let marker = GMSMarker()
+        marker.position = coordinate
+        marker.title = "Tap to View Table"
+        marker.map = mapView
+        marker.userData = id
+        marker.tracksInfoWindowChanges = true
+        allMarkers.append(marker)
+    }
+    
+    func remove_marker(coordinate: CLLocationCoordinate2D) {
+        // find the marker in the list and remove it from the map
+        
+        for marker in allMarkers {
+            let lat = marker.position.latitude
+            let lon = marker.position.longitude
+            
+            if ((lat == coordinate.latitude) && (lon == coordinate.longitude)) {
+                marker.map = nil
+                break
+            }
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("Tables").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let lat = data["latitude"]  as! CLLocationDegrees
+                    let lon = data["longitude"] as! CLLocationDegrees
+                    // let docID = data["id"] as! String
+                    
+                    if ((coordinate.latitude  == lat) && (coordinate.longitude == lon)) {
+                        // if (mark.userData == docID) { }
+                        toRemove = coordinate
+                        document.reference.delete()
+                    }
+                }
+            }
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
