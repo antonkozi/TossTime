@@ -4,13 +4,14 @@
 //
 //  Created by Anton on 10/27/21.
 //
-
 import CoreLocation
 import GoogleMaps
 import UIKit
 import Firebase
 import FirebaseAuth
 //import FirebaseDatabase
+var allMarkers = Array<GMSMarker>()
+var toRemove = CLLocationCoordinate2D()
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
@@ -20,28 +21,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     public var completionHandler: ((String?) -> Void)?
     
-    
-    
     let locationManager = CLLocationManager()
-    //var tables: [GMSMarker] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Utilities.styleHollowButton(myTableButton)
-        
-        
-        
         locationManager.delegate = self
+        myMap.isMyLocationEnabled = true
         myMap.delegate = self
+       
+        let db = Firestore.firestore()
         
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.requestLocation()
-            myMap.settings.zoomGestures=true
-            myMap.settings.myLocationButton = true
-        }
-        else{
-            locationManager.requestWhenInUseAuthorization()
-        }
+        
         // Create image
         let image = UIImage(named: "tables.png")
         
@@ -55,7 +44,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         button.setTitle("Button", for: .normal)
         button.setTitleColor(.red, for: .normal)
         self.view.addSubview(button)
-        //print("licenseL \n\n\(GMSServices.openSourceLicenseInfo())")
+        // This bit of code here gets the lat & long of tables, and adds map markers for them
+        db.collection("Tables").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let lat = data["latitude"]  as! CLLocationDegrees
+                    let lon = data["longitude"] as! CLLocationDegrees
+                    let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                    let id = data["id"]
+                    
+                    if ((lat == toRemove.latitude) && (lon == toRemove.longitude)) { continue }
+                    self.add_marker(mapView: self.myMap, coordinate: coord, id: id as! String)
+                }
+            }
+        }
+        
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.requestLocation()
+            myMap.settings.zoomGestures=true
+            myMap.settings.myLocationButton = true
+        }
+        else{
+            locationManager.requestWhenInUseAuthorization()
+        }
+       
+        print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     @objc func imageButtonTapped(_ sender:UIButton!)
     {
@@ -66,6 +82,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         present(tables, animated: true)
     }
    
+    
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let lat = coordinate.latitude
         let long = coordinate.longitude
@@ -76,39 +93,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         marker.title = "Tap to View Table"
         marker.map = mapView
+        marker.userData = Auth.auth().currentUser!.uid
         marker.tracksInfoWindowChanges = true
+        
+        
     }
     
     //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "green_vc") as! GreenViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
+                
+        vc.setCoordinates(coord: marker.position)
+        vc.markerToLoad = marker.userData as! String
         
-       // vc.text = marker.title ?? "Not a valid marker"
         navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     
     }
     
-    //TODO: Custom Info window
-    
-    
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // defaults to santa cruz
-        myMap.camera = GMSCameraPosition(
-            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 36.974117, longitude: locationManager.location?.coordinate.longitude ?? -122.030792),
-            zoom: 15,
+        
+        let camera = GMSCameraPosition(
+            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
+            zoom: 20,
             bearing: 0,
             viewingAngle: 0)
-    
-       
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.latitude ?? 0.0)
-        marker.title = "hi"
-        marker.snippet = "hello"
-        marker.map = myMap
-
+        myMap.animate(to: camera)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -125,6 +136,50 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             locationManager.requestWhenInUseAuthorization()
         default:
             locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D, id: String){
+        let marker = GMSMarker()
+        marker.position = coordinate
+        marker.title = "Tap to View Table"
+        marker.map = mapView
+        marker.userData = id
+        marker.tracksInfoWindowChanges = true
+        allMarkers.append(marker)
+    }
+    
+    func remove_marker(coordinate: CLLocationCoordinate2D) {
+        // find the marker in the list and remove it from the map
+        
+        for marker in allMarkers {
+            let lat = marker.position.latitude
+            let lon = marker.position.longitude
+            
+            if ((lat == coordinate.latitude) && (lon == coordinate.longitude)) {
+                marker.map = nil
+                break
+            }
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("Tables").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let lat = data["latitude"]  as! CLLocationDegrees
+                    let lon = data["longitude"] as! CLLocationDegrees
+                    // let docID = data["id"] as! String
+                    
+                    if ((coordinate.latitude  == lat) && (coordinate.longitude == lon)) {
+                        // if (mark.userData == docID) { }
+                        toRemove = coordinate
+                        document.reference.delete()
+                    }
+                }
+            }
         }
     }
     
