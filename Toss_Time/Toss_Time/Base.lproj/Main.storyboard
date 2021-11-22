@@ -68,6 +68,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="UhH-H5-Wb5">
                                         <rect key="frame" x="0.0" y="65" width="314" height="200"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="314" id="PKc-0R-caf"/>
                                             <constraint firstAttribute="height" constant="200" id="SOH-uF-Bq4"/>
                                         </constraints>
                                     </imageView>
@@ -182,7 +183,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bQu-dR-41S" firstAttribute="top" secondItem="AVP-SS-ycw" secondAttribute="bottom" constant="15" id="8Os-d3-7fA"/>
+                                    <constraint firstItem="UhH-H5-Wb5" firstAttribute="leading" secondItem="uvm-BJ-hBx" secondAttribute="leading" id="LN6-Oe-inx"/>
+                                    <constraint firstItem="UhH-H5-Wb5" firstAttribute="top" secondItem="SkX-lD-Bcp" secondAttribute="bottom" constant="15" id="SFu-OP-vDw"/>
+                                    <constraint firstAttribute="trailing" secondItem="UhH-H5-Wb5" secondAttribute="trailing" id="ni2-jK-Chs"/>
                                     <constraint firstItem="AVP-SS-ycw" firstAttribute="top" secondItem="UhH-H5-Wb5" secondAttribute="bottom" constant="15" id="sUt-6p-XEb"/>
+                                    <constraint firstItem="AVP-SS-ycw" firstAttribute="top" secondItem="UhH-H5-Wb5" secondAttribute="bottom" constant="15" id="tR5-6l-1Of"/>
                                 </constraints>
                             </stackView>
                         </subviews>

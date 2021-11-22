@@ -37,6 +37,23 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         imagePickerController.delegate = self
         //set the fields of the table
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+              let url = URL(string: urlString)
+        else{
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.TableImage.image = image
+            }
+            
+        }
+        task.resume()
         setElements()
     }
     

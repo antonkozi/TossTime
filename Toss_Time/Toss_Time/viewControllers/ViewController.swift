@@ -93,14 +93,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             zoom: 8,
             bearing: 0,
             viewingAngle: 0)
-    
-       
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.latitude ?? 0.0)
-        marker.title = "hi"
-        marker.snippet = "hello"
-        marker.map = myMap
-
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
