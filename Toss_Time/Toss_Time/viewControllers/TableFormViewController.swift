@@ -36,11 +36,13 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
+        //set the fields of the table
         setElements()
     }
     
     
     func setElements(){
+        //create database instance and retrieve table info for the marker that was clicked on
         let db = Firestore.firestore()
         db.collection("Tables").document(markerToLoad).getDocument { (doc, err) in
                 if let doc = doc, doc.exists {
@@ -49,20 +51,46 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
                     let owner = docData!["owner"] as? String ?? ""
                     let houseRules = docData!["houseRules"] as? String ?? ""
                     let contactInfo = docData!["contactInfo"] as? String ?? ""
+                    let id = docData!["id"] as? String ?? ""
 
+                    //set text fields
                     self.TableOwnerTextField.text = owner
                     self.houseRulesTextView.text = houseRules
                     self.ContactInfoTextField.text = contactInfo
-
-
+                    
+                    self.TableOwnerTextField.isUserInteractionEnabled = false
+                    self.ContactInfoTextField.isUserInteractionEnabled = false
+                    self.houseRulesTextView.isUserInteractionEnabled = false
+                    
+                    //If the table does not belong to the current user, dont allow the to change anything
+                    if self.isAuthor(id: id) == false{
+                        self.deleteButton.isUserInteractionEnabled = false
+                        self.editButton.isUserInteractionEnabled = false
+                        self.SubmitButtonTextField.isUserInteractionEnabled = false
+                        self.SubmitButtonTextField.alpha = 0
+                        self.editButton.alpha = 0
+                        self.deleteButton.alpha = 0
+                        
+                    }
+                    
                 }
             else{
+                
+                //TODO: Bring user back to the map
+                
                 print("Document does not exist")
             }
         }
+        
+       
+        
     }
     
-    func checkUser(){
+    func isAuthor(id: String) -> Bool{
+        if Auth.auth().currentUser!.uid == id{
+            return true
+        }
+        return false
         
     }
     
@@ -161,16 +189,25 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         
         db.collection("Tables").document(Auth.auth().currentUser!.uid).setData(["latitude": latitude, "longitude": longitude, "id": Auth.auth().currentUser!.uid, "owner": TableOwnerTextField.text!, "houseRules": houseRulesTextView.text!, "contactInfo" : ContactInfoTextField.text!])
         
+        self.TableOwnerTextField.isUserInteractionEnabled = false
+        self.houseRulesTextView.isUserInteractionEnabled = false
+        self.ContactInfoTextField.isUserInteractionEnabled = false
+        
         let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
         self.view.window?.rootViewController = mapViewController
         withAnimation {
             self.view.window?.makeKeyAndVisible()
         }
         
+        
+        
     }
     
-    
     @IBAction func editTapped(_ sender: Any) {
+        TableOwnerTextField.isUserInteractionEnabled = true
+        ContactInfoTextField.isUserInteractionEnabled = true
+        houseRulesTextView.isUserInteractionEnabled = true
+        
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
