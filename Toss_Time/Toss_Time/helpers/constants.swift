@@ -12,5 +12,6 @@ struct Constants{
         static let mapController = "map_vc"
         static let editController = "edit"
         static let tableController = "green_vc"
+        static let loginController = "sl"
     }
 }

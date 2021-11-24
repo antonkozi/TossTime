@@ -10,6 +10,7 @@ import GoogleMaps
 import UIKit
 import Firebase
 import FirebaseAuth
+import SwiftUI
 //import FirebaseDatabase
 
 var allMarkers = Array<GMSMarker>()
@@ -20,6 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     var text:String = ""
     
     @IBOutlet weak var myMap: GMSMapView!
+    @IBOutlet weak var logoutButton: UIButton!
     
     public var completionHandler: ((String?) -> Void)?
     
@@ -61,7 +63,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     
-   
+    @IBAction func logoutTapped(_ sender: Any) {
+        self.showLogoutSheet()
+    }
+    
+    func showLogoutSheet(){
+        
+        let actionSheet = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel ", style: .default, handler: { action in
+            print("Tapped Cancel")
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { action in
+                let firebaseAuth = Auth.auth()
+                do {
+                    try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                    print("Error signing out: %@", signOutError)
+                }
+            
+            //self.transitionLogout()
+            
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    func transitionLogout(){
+        
+        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.loginController) as? ViewController
+        self.view.window?.rootViewController = loginViewController
+        withAnimation {
+            self.view.window?.makeKeyAndVisible()
+        }
+        
+    }
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let lat = coordinate.latitude
