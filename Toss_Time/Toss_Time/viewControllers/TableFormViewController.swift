@@ -57,6 +57,11 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         setElements()
     }
     
+    //dismiss keyboard when touching outside the keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     
     func setElements(){
         //create database instance and retrieve table info for the marker that was clicked on

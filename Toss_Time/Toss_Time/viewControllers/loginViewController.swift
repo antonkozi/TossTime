@@ -22,6 +22,11 @@ class loginViewController: UIViewController {
         setUpElements()
     }
     
+    //dismiss keyboard when touching outside the keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func setUpElements(){
         errorLabel.alpha = 0
         
