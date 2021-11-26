@@ -64,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        self.showLogoutSheet()
+        showLogoutSheet()
     }
     
     func showLogoutSheet(){
@@ -82,22 +82,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                 } catch let signOutError as NSError {
                     print("Error signing out: %@", signOutError)
                 }
-            
-            //self.transitionLogout()
-            
+            self.transitionToLogout()
         }))
         
         present(actionSheet, animated: true)
     }
     
-    func transitionLogout(){
-        
-        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.loginController) as? ViewController
-        self.view.window?.rootViewController = loginViewController
+    func transitionToLogout(){
+
+        let loginView = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.loginController) as? signLogin
+        self.view.window?.rootViewController = loginView
         withAnimation {
             self.view.window?.makeKeyAndVisible()
         }
-        
+
     }
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
@@ -116,7 +114,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
     }
     
-    //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
