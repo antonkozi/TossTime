@@ -15,8 +15,6 @@
 		3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */; };
 		3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */; };
 		3B2095EF2739B00D00AF3005 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2095EE2739B00D00AF3005 /* constants.swift */; };
-		3B2095F22739B63400AF3005 /* beerDieGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3B2095F12739B63300AF3005 /* beerDieGif.gif */; };
-		3B2095F42739B81B00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */; };
 		3B2095F6273B0BF700AF3005 /* TableFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2095F5273B0BF700AF3005 /* TableFormViewController.swift */; };
 		3B3FC89D273DF46A00775053 /* TossTimeMedium.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3FC89A273DF46700775053 /* TossTimeMedium.png */; };
 		3B3FC89E273DF46A00775053 /* TossTimeBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B3FC89B273DF46900775053 /* TossTimeBig.png */; };
@@ -25,6 +23,7 @@
 		3B44FA432735F28E002A8570 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA422735F28E002A8570 /* loginViewController.swift */; };
 		3B44FA4827360070002A8570 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA4727360070002A8570 /* Utilities.swift */; };
 		3B44FA4A2736033D002A8570 /* signLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA492736033D002A8570 /* signLogin.swift */; };
+		3BD1EF882752BBED002785FA /* white.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3BD1EF872752BBED002785FA /* white.jpeg */; };
 		3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAC273B269A00CF3A57 /* uploadImage.png */; };
 		3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */; };
 		3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EB0273D998E00CF3A57 /* Table.swift */; };
@@ -51,8 +50,6 @@
 		3A89A020272A095300A1B3D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stacked-peaks-haikei.png"; sourceTree = "<group>"; };
 		3B2095EE2739B00D00AF3005 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
-		3B2095F12739B63300AF3005 /* beerDieGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = beerDieGif.gif; sourceTree = "<group>"; };
-		3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4"; sourceTree = "<group>"; };
 		3B2095F5273B0BF700AF3005 /* TableFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFormViewController.swift; sourceTree = "<group>"; };
 		3B3FC89A273DF46700775053 /* TossTimeMedium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TossTimeMedium.png; sourceTree = "<group>"; };
 		3B3FC89B273DF46900775053 /* TossTimeBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TossTimeBig.png; sourceTree = "<group>"; };
@@ -61,6 +58,7 @@
 		3B44FA422735F28E002A8570 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		3B44FA4727360070002A8570 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3B44FA492736033D002A8570 /* signLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signLogin.swift; sourceTree = "<group>"; };
+		3BD1EF872752BBED002785FA /* white.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white.jpeg; sourceTree = "<group>"; };
 		3BFF4EAC273B269A00CF3A57 /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadImage.png; sourceTree = "<group>"; };
 		3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tablesViewModel.swift; sourceTree = "<group>"; };
 		3BFF4EB0273D998E00CF3A57 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
@@ -134,6 +132,7 @@
 		3B2095F02739B58400AF3005 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				3BD1EF872752BBED002785FA /* white.jpeg */,
 				60E4BF29275239A10053FE93 /* addTableButton.png */,
 				60E4BF27275239A10053FE93 /* currentLocationButton.png */,
 				60E4BF28275239A10053FE93 /* logOut.png */,
@@ -145,8 +144,6 @@
 				3B3FC89A273DF46700775053 /* TossTimeMedium.png */,
 				3B3FC89C273DF46A00775053 /* TossTimeSmall.png */,
 				3BFF4EAC273B269A00CF3A57 /* uploadImage.png */,
-				3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */,
-				3B2095F12739B63300AF3005 /* beerDieGif.gif */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -251,17 +248,16 @@
 				60E4BF2E275239A10053FE93 /* logOut.png in Resources */,
 				60E4BF30275239A10053FE93 /* tableListButton.png in Resources */,
 				3B3FC89D273DF46A00775053 /* TossTimeMedium.png in Resources */,
-				3B2095F42739B81B00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 in Resources */,
 				3B3FC89F273DF46A00775053 /* TossTimeSmall.png in Resources */,
 				3B3FC89E273DF46A00775053 /* TossTimeBig.png in Resources */,
 				3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */,
 				3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */,
 				60E4BF2C275239A10053FE93 /* tableCircle.png in Resources */,
 				3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */,
-				3B2095F22739B63400AF3005 /* beerDieGif.gif in Resources */,
 				60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
 				3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */,
+				3BD1EF882752BBED002785FA /* white.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SwiftUI
-
+import FirebaseStorage
 
 /** Global Variables
  - allMarkers       An array containing all marker objects on the map
@@ -19,6 +19,7 @@ import SwiftUI
 */
 var allMarkers = Array<GMSMarker>()
 var toRemove = CLLocationCoordinate2D()
+private let storage = Storage.storage().reference()
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
@@ -144,19 +145,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     }
     
-    
-    // Unnecessary???
+    /**
+     Transitions to users current location using the camera class provided by google maps
+     
+     - Parameters:
+        - manager:  Property that manages everything to do with locations
+        - didUpdateLocations: racks whether location was updated
+     
+     - Returns:     None
+     */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        /*
         let camera = GMSCameraPosition(
             target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
             zoom: 8,
             bearing: 0,
             viewingAngle: 0)
         myMap.animate(to: camera)
-         */
     }
-    
+
     
     // What to say?
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -236,6 +242,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                 }
             }
         }
+        
+        let imageRef = storage.child("images/\(Auth.auth().currentUser!.uid).png")
+
+        // Delete the file
+        imageRef.delete { error in
+          if let error = error {
+            print(error)
+          } else {
+            print("file deleted")
+          }
+        }
+        
     }
     
     
