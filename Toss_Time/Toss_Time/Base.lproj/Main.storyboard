@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xqg-lS-Id4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xqg-lS-Id4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,12 +23,12 @@
                                     <constraint firstAttribute="height" constant="896" id="cfh-I8-krN"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUG-Vm-jM5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUG-Vm-jM5" userLabel="AddTable">
                                 <rect key="frame" x="357" y="816" width="37" height="26"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="addTableButton.png" title=""/>
                                 <connections>
-                                    <action selector="add_table:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mzr-wx-SOG"/>
+                                    <action selector="add_table:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Cp-iI-om6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pce-LO-f94">
@@ -36,7 +36,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="currentLocationButton.png"/>
                                 <connections>
-                                    <action selector="current_location:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lP2-uw-MG6"/>
+                                    <action selector="current_location:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bT-c6-afA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64Y-tl-UmC">
@@ -44,7 +44,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="tableListButton.png"/>
                                 <connections>
-                                    <action selector="tableList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3bF-Tq-LX9"/>
+                                    <action selector="tableList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pOe-fb-3wa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,10 +65,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="zv6-xT-IuM"/>
                     <connections>
-                        <outlet property="add_table" destination="sUG-Vm-jM5" id="jAk-p9-OLG"/>
-                        <outlet property="current_location" destination="pce-LO-f94" id="BaM-Bk-yko"/>
-                        <outlet property="myMap" destination="BGX-pH-DBP" id="UQz-cn-VM2"/>
-                        <outlet property="tableList" destination="64Y-tl-UmC" id="170-Tb-YA1"/>
+                        <outlet property="add_table" destination="sUG-Vm-jM5" id="Lpg-jj-JC1"/>
+                        <outlet property="current_location" destination="pce-LO-f94" id="id9-2n-5A0"/>
+                        <outlet property="myMap" destination="BGX-pH-DBP" id="sUg-rV-qbT"/>
+                        <outlet property="tableList" destination="64Y-tl-UmC" id="lvC-Po-yIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
