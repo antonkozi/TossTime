@@ -322,7 +322,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="USJ-U0-nEB">
-                                <rect key="frame" x="40" y="128" width="334" height="400"/>
+                                <rect key="frame" x="40" y="128" width="334" height="370.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aCW-pJ-8KW">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -356,7 +356,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4c-T4-vYv">
-                                        <rect key="frame" x="0.0" y="350" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="350" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -366,19 +366,23 @@
                                     <constraint firstItem="VrI-Ps-AY9" firstAttribute="height" secondItem="aCW-pJ-8KW" secondAttribute="height" id="OMa-PF-ZqU"/>
                                     <constraint firstItem="cNS-ty-ndX" firstAttribute="height" secondItem="aCW-pJ-8KW" secondAttribute="height" id="UDr-h7-iP6"/>
                                     <constraint firstItem="Xds-0v-kSj" firstAttribute="height" secondItem="aCW-pJ-8KW" secondAttribute="height" id="VJn-Yi-KwW"/>
-                                    <constraint firstItem="Z4c-T4-vYv" firstAttribute="height" secondItem="cNS-ty-ndX" secondAttribute="height" id="lwU-uf-ePQ"/>
                                     <constraint firstItem="2uH-RL-NfK" firstAttribute="height" secondItem="aCW-pJ-8KW" secondAttribute="height" id="tMo-Ov-lra"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TossTimeBig.png" translatesAutoresizingMaskIntoConstraints="NO" id="EJP-34-6WR">
-                                <rect key="frame" x="40" y="536" width="334" height="311"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TossTimeBig.png" translatesAutoresizingMaskIntoConstraints="NO" id="EJP-34-6WR">
+                                <rect key="frame" x="0.0" y="623" width="414" height="273"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="273" id="x50-7r-KQt"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JLe-ar-APv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EJP-34-6WR" firstAttribute="leading" secondItem="JLe-ar-APv" secondAttribute="leading" id="0o2-Eb-34e"/>
+                            <constraint firstAttribute="bottom" secondItem="EJP-34-6WR" secondAttribute="bottom" id="9b0-Hc-r7Z"/>
                             <constraint firstItem="USJ-U0-nEB" firstAttribute="top" secondItem="JLe-ar-APv" secondAttribute="top" constant="40" id="KpM-Ud-xEl"/>
+                            <constraint firstItem="EJP-34-6WR" firstAttribute="centerX" secondItem="USJ-U0-nEB" secondAttribute="centerX" id="PGG-co-EVY"/>
                             <constraint firstItem="USJ-U0-nEB" firstAttribute="leading" secondItem="JLe-ar-APv" secondAttribute="leading" constant="40" id="PPW-jr-J8E"/>
                             <constraint firstItem="JLe-ar-APv" firstAttribute="trailing" secondItem="USJ-U0-nEB" secondAttribute="trailing" constant="40" id="yZY-sD-mYg"/>
                         </constraints>
@@ -406,7 +410,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mFe-ti-2O2">
-                                <rect key="frame" x="40" y="128" width="334" height="220"/>
+                                <rect key="frame" x="40" y="128" width="334" height="200.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qAz-8V-khn">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -430,7 +434,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVb-Wb-S0B">
-                                        <rect key="frame" x="0.0" y="180" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="180" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -438,12 +442,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="uiu-Ai-ZAR" firstAttribute="height" secondItem="qAz-8V-khn" secondAttribute="height" id="Au5-TB-KnR"/>
-                                    <constraint firstItem="qVb-Wb-S0B" firstAttribute="height" secondItem="qAz-8V-khn" secondAttribute="height" id="FkX-eE-yDb"/>
                                     <constraint firstItem="aTr-nL-S76" firstAttribute="height" secondItem="qAz-8V-khn" secondAttribute="height" id="fAI-CA-HLy"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TossTimeBig.png" translatesAutoresizingMaskIntoConstraints="NO" id="ugf-Ap-hpL">
-                                <rect key="frame" x="53" y="388" width="321" height="435"/>
+                                <rect key="frame" x="53" y="445" width="321" height="378"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>

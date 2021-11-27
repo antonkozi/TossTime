@@ -29,7 +29,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         locationManager.delegate = self
         myMap.isMyLocationEnabled = true
         myMap.delegate = self
+        
+        setData()
        
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.requestLocation()
+            myMap.settings.zoomGestures=true
+        }
+        else{
+            locationManager.requestWhenInUseAuthorization()
+        }
+       
+        print("license \n\n\(GMSServices.openSourceLicenseInfo())")
+    }
+    
+    func setData(){
         let db = Firestore.firestore()
                 
         // This bit of code here gets the lat & long of tables, and adds map markers for them
@@ -49,19 +63,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                 }
             }
         }
-        
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.requestLocation()
-            myMap.settings.zoomGestures=true
-        }
-        else{
-            locationManager.requestWhenInUseAuthorization()
-        }
-       
-        print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
-    
-   
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let lat = coordinate.latitude
@@ -79,7 +81,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
     }
     
-    //TODO: Way to delete marker
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
