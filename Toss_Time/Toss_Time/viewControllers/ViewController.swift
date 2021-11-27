@@ -23,6 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     @IBOutlet weak var tableList: UIButton!
     @IBOutlet weak var add_table: UIButton!
     @IBOutlet weak var current_location: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     public var completionHandler: ((String?) -> Void)?
     
@@ -172,14 +173,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         print(error)
     }
     
-    @IBAction func tableList(_ sender: Any) {
-        let tables = storyboard?.instantiateViewController(withIdentifier: "tables_view") as! TableViewController
-            
-        // vc.text = marker.title ?? "Not a valid marker"
-        navigationController?.pushViewController(tables, animated: true)
-        present(tables, animated: true)
-    }
-    
     func add_marker_at_current_location(mapView: GMSMapView, id: String){
         let lat = mapView.myLocation?.coordinate.latitude
         let long = mapView.myLocation?.coordinate.longitude
@@ -198,7 +191,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         let camera = GMSCameraPosition.camera(withLatitude: lat ?? 0.0, longitude: long ?? 0.0, zoom: 8)
             mapView.animate(to: camera)
     }
+    
+    func logout() {
+        let actionSheet = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
         
+        actionSheet.addAction(UIAlertAction(title: "Cancel ", style: .default, handler: { action in
+            print("Tapped Cancel")
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { action in
+                let firebaseAuth = Auth.auth()
+                do {
+                    try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                    print("Error signing out: %@", signOutError)
+                }
+            
+            let loginView = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.loginController) as? signLogin
+            self.view.window?.rootViewController = loginView
+            withAnimation {
+                self.view.window?.makeKeyAndVisible()
+            }
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+        
+    @IBAction func tableList(_ sender: Any) {
+        let tables = storyboard?.instantiateViewController(withIdentifier: "tables_view") as! TableViewController
+        navigationController?.pushViewController(tables, animated: true)
+        present(tables, animated: true)
+    }
+    
     @IBAction func add_table(_ sender: Any) {
         go_to_current_location(mapView: myMap)
         add_marker_at_current_location(mapView: myMap, id: Auth.auth().currentUser!.uid)
@@ -206,5 +230,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     @IBAction func current_location(_ sender: Any) {
         go_to_current_location(mapView: myMap)
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        logout()
     }
 }

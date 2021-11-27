@@ -35,6 +35,7 @@
 		600BC6412751D0BE0047C83D /* tableCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BC63C2751D0BB0047C83D /* tableCircle.png */; };
 		600BC6422751D0BE0047C83D /* tableListButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BC63D2751D0BD0047C83D /* tableListButton.png */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
+		60B9A717275212B4005864A0 /* logOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B9A716275212B4005864A0 /* logOut.png */; };
 		F69496EED161C382CDDC2078 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		600BC63C2751D0BB0047C83D /* tableCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableCircle.png; path = ../../../../../../Downloads/tableCircle.png; sourceTree = "<group>"; };
 		600BC63D2751D0BD0047C83D /* tableListButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableListButton.png; path = ../../../../../../Downloads/tableListButton.png; sourceTree = "<group>"; };
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		60B9A716275212B4005864A0 /* logOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logOut.png; sourceTree = "<group>"; };
 		7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9AA90892A585A59EEA5A074 /* Pods-Toss_Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toss_Time.release.xcconfig"; path = "Target Support Files/Pods-Toss_Time/Pods-Toss_Time.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +134,7 @@
 		3B2095F02739B58400AF3005 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				60B9A716275212B4005864A0 /* logOut.png */,
 				600BC6392751D0B70047C83D /* addTableButton.png */,
 				600BC63A2751D0B80047C83D /* currentLocationButton.png */,
 				600BC63C2751D0BB0047C83D /* tableCircle.png */,
@@ -254,6 +257,7 @@
 				3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */,
 				3B2095F22739B63400AF3005 /* beerDieGif.gif in Resources */,
 				600BC63F2751D0BE0047C83D /* currentLocationButton.png in Resources */,
+				60B9A717275212B4005864A0 /* logOut.png in Resources */,
 				60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */,
 				600BC6412751D0BE0047C83D /* tableCircle.png in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
