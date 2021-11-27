@@ -33,6 +33,13 @@
 		3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */; };
 		3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EB0273D998E00CF3A57 /* Table.swift */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
+		764E67FB274F52AE0036A3F6 /* tableMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 764E67FA274F52AE0036A3F6 /* tableMarker.png */; };
+		764E67FD274F52CA0036A3F6 /* addTableButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 764E67FC274F52CA0036A3F6 /* addTableButton.png */; };
+		764E67FF274F55090036A3F6 /* tableCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 764E67FE274F55090036A3F6 /* tableCircle.png */; };
+		76DE1C222751AA4F0090FDE2 /* addTableButtonbig.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C212751AA4F0090FDE2 /* addTableButtonbig.png */; };
+		76DE1C2A2751B07D0090FDE2 /* addTableButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C292751B07D0090FDE2 /* addTableButton.png */; };
+		76DE1C2C2751B0C60090FDE2 /* tableListButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C2B2751B0C60090FDE2 /* tableListButton.png */; };
+		76DE1C2E2751B0CD0090FDE2 /* currentLocationButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C2D2751B0CC0090FDE2 /* currentLocationButton.png */; };
 		DD1341A6274C62A90093B1C4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1341A5274C62A90093B1C4 /* TableViewController.swift */; };
 		DD460FDA274AF4A7004A4D97 /* tables.png in Resources */ = {isa = PBXBuildFile; fileRef = DD460FD9274AF4A7004A4D97 /* tables.png */; };
 		F69496EED161C382CDDC2078 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */; };
@@ -68,6 +75,13 @@
 		3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tablesViewModel.swift; sourceTree = "<group>"; };
 		3BFF4EB0273D998E00CF3A57 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		764E67FA274F52AE0036A3F6 /* tableMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableMarker.png; path = ../../../../../Downloads/tableMarker.png; sourceTree = "<group>"; };
+		764E67FC274F52CA0036A3F6 /* addTableButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addTableButton.png; path = ../../../../../Downloads/addTableButton.png; sourceTree = "<group>"; };
+		764E67FE274F55090036A3F6 /* tableCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableCircle.png; path = ../../../../../Downloads/tableCircle.png; sourceTree = "<group>"; };
+		76DE1C212751AA4F0090FDE2 /* addTableButtonbig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addTableButtonbig.png; path = ../../../../../Downloads/addTableButtonbig.png; sourceTree = "<group>"; };
+		76DE1C292751B07D0090FDE2 /* addTableButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addTableButton.png; path = ../../../../../Downloads/addTableButton.png; sourceTree = "<group>"; };
+		76DE1C2B2751B0C60090FDE2 /* tableListButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableListButton.png; path = ../../../../../Downloads/tableListButton.png; sourceTree = "<group>"; };
+		76DE1C2D2751B0CC0090FDE2 /* currentLocationButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = currentLocationButton.png; path = ../../../../../Downloads/currentLocationButton.png; sourceTree = "<group>"; };
 		7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1341A5274C62A90093B1C4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DD460FD9274AF4A7004A4D97 /* tables.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tables.png; sourceTree = "<group>"; };
@@ -142,6 +156,13 @@
 				3B2095F32739B81A00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 */,
 				DD460FD9274AF4A7004A4D97 /* tables.png */,
 				3B2095F12739B63300AF3005 /* beerDieGif.gif */,
+				764E67FC274F52CA0036A3F6 /* addTableButton.png */,
+				764E67FA274F52AE0036A3F6 /* tableMarker.png */,
+				764E67FE274F55090036A3F6 /* tableCircle.png */,
+				76DE1C292751B07D0090FDE2 /* addTableButton.png */,
+				76DE1C212751AA4F0090FDE2 /* addTableButtonbig.png */,
+				76DE1C2B2751B0C60090FDE2 /* tableListButton.png */,
+				76DE1C2D2751B0CC0090FDE2 /* currentLocationButton.png */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -246,6 +267,7 @@
 				3B2095F42739B81B00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 in Resources */,
 				3B3FC89F273DF46A00775053 /* TossTimeSmall.png in Resources */,
 				3B3FC89E273DF46A00775053 /* TossTimeBig.png in Resources */,
+				764E67FB274F52AE0036A3F6 /* tableMarker.png in Resources */,
 				3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */,
 				3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */,
 				3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */,
@@ -253,8 +275,14 @@
 				60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */,
 				3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */,
 				DD460FDA274AF4A7004A4D97 /* tables.png in Resources */,
+				764E67FF274F55090036A3F6 /* tableCircle.png in Resources */,
+				76DE1C2C2751B0C60090FDE2 /* tableListButton.png in Resources */,
+				76DE1C2A2751B07D0090FDE2 /* addTableButton.png in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
+				76DE1C2E2751B0CD0090FDE2 /* currentLocationButton.png in Resources */,
+				76DE1C222751AA4F0090FDE2 /* addTableButtonbig.png in Resources */,
 				3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */,
+				764E67FD274F52CA0036A3F6 /* addTableButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

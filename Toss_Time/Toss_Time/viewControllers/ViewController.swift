@@ -7,6 +7,7 @@
 import CoreLocation
 import GoogleMaps
 import UIKit
+import SwiftUI
 import Firebase
 import FirebaseAuth
 //import FirebaseDatabase
@@ -19,20 +20,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     @IBOutlet weak var myMap: GMSMapView!
     
+    @IBOutlet weak var tableList: UIButton!
+    
+    @IBOutlet weak var add_table: UIButton!
+    
+    @IBOutlet weak var current_location: UIButton!
+    
     public var completionHandler: ((String?) -> Void)?
     
     let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        myMap.isMyLocationEnabled = true
         myMap.delegate = self
        
         let db = Firestore.firestore()
         
-        
+        // button
         // Create image
-        let image = UIImage(named: "tables.png")
+        /*let image = UIImage(named: "tables.png")
         
         let button = UIButton(type: UIButton.ButtonType.custom)
         // Screen Sizes
@@ -43,7 +49,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         button.addTarget(self, action:#selector(self.imageButtonTapped(_:)), for: .touchUpInside)
         button.setTitle("Button", for: .normal)
         button.setTitleColor(.red, for: .normal)
-        self.view.addSubview(button)
+        self.view.addSubview(button)*/
+        //
         // This bit of code here gets the lat & long of tables, and adds map markers for them
         db.collection("Tables").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -65,7 +72,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         if CLLocationManager.locationServicesEnabled(){
             locationManager.requestLocation()
             myMap.settings.zoomGestures=true
-            myMap.settings.myLocationButton = true
+            myMap.isMyLocationEnabled = true
         }
         else{
             locationManager.requestWhenInUseAuthorization()
@@ -73,14 +80,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
        
         print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
-    @objc func imageButtonTapped(_ sender:UIButton!)
+    /*@objc func imageButtonTapped(_ sender:UIButton!)
     {
         let tables = storyboard?.instantiateViewController(withIdentifier: "tables_view") as! TableViewController
         
        // vc.text = marker.title ?? "Not a valid marker"
         navigationController?.pushViewController(tables, animated: true)
         present(tables, animated: true)
-    }
+    }*/
    
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
@@ -114,12 +121,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let camera = GMSCameraPosition(
+        /*let camera = GMSCameraPosition(
             target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
             zoom: 18,
             bearing: 0,
             viewingAngle: 0)
-        myMap.animate(to: camera)
+        myMap.animate(to: camera)*/
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -186,4 +193,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
+    
+    @IBAction func tableList(_ sender: Any) {
+        let tables = storyboard?.instantiateViewController(withIdentifier: "tables_view") as! TableViewController
+        
+       // vc.text = marker.title ?? "Not a valid marker"
+        navigationController?.pushViewController(tables, animated: true)
+        present(tables, animated: true)
+    }
+    
+    func add_marker_at_current_location(mapView: GMSMapView, id: String){
+        let lat = mapView.myLocation?.coordinate.latitude
+        let long = mapView.myLocation?.coordinate.longitude
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat ?? 0.0, longitude: long ?? 0.0)
+        marker.icon = UIImage(named: "tableMarker.png")
+        marker.title = "Tap to View Table"
+        marker.map = mapView
+        marker.userData = id
+        marker.tracksInfoWindowChanges = true
+    }
+        
+    func go_to_current_location(mapView: GMSMapView){
+        let lat = mapView.myLocation?.coordinate.latitude
+        let long = mapView.myLocation?.coordinate.longitude
+        let camera = GMSCameraPosition.camera(withLatitude: lat ?? 0.0, longitude: long ?? 0.0, zoom: 8)
+            mapView.animate(to: camera)
+    }
+    
+    @IBAction func add_table(_ sender: Any) {
+        go_to_current_location(mapView: myMap)
+        add_marker_at_current_location(mapView: myMap, id: Auth.auth().currentUser!.uid)
+    }
+    
+    @IBAction func current_location(_ sender: Any) {
+        go_to_current_location(mapView: myMap)
+    }
+    
 }
