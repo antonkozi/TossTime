@@ -32,12 +32,12 @@
 		3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAC273B269A00CF3A57 /* uploadImage.png */; };
 		3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */; };
 		3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EB0273D998E00CF3A57 /* Table.swift */; };
+		600BC6322751C65C0047C83D /* addTableButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BC62D2751C65A0047C83D /* addTableButton.png */; };
+		600BC6332751C65C0047C83D /* tableMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BC62E2751C65B0047C83D /* tableMarker.png */; };
+		600BC6342751C65C0047C83D /* currentLocationButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BC62F2751C65B0047C83D /* currentLocationButton.png */; };
+		600BC6352751C65C0047C83D /* tableListButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BC6302751C65C0047C83D /* tableListButton.png */; };
+		600BC6362751C65C0047C83D /* tableCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BC6312751C65C0047C83D /* tableCircle.png */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
-		76DE1C342751BD9F0090FDE2 /* addTableButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C2F2751BD9D0090FDE2 /* addTableButton.png */; };
-		76DE1C352751BD9F0090FDE2 /* tableCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C302751BD9E0090FDE2 /* tableCircle.png */; };
-		76DE1C362751BD9F0090FDE2 /* tableListButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C312751BD9E0090FDE2 /* tableListButton.png */; };
-		76DE1C372751BD9F0090FDE2 /* tableMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C322751BD9E0090FDE2 /* tableMarker.png */; };
-		76DE1C382751BD9F0090FDE2 /* currentLocationButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DE1C332751BD9F0090FDE2 /* currentLocationButton.png */; };
 		DD1341A6274C62A90093B1C4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1341A5274C62A90093B1C4 /* TableViewController.swift */; };
 		DD460FDA274AF4A7004A4D97 /* tables.png in Resources */ = {isa = PBXBuildFile; fileRef = DD460FD9274AF4A7004A4D97 /* tables.png */; };
 		F69496EED161C382CDDC2078 /* Pods_Toss_Time.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */; };
@@ -72,12 +72,12 @@
 		3BFF4EAC273B269A00CF3A57 /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadImage.png; sourceTree = "<group>"; };
 		3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tablesViewModel.swift; sourceTree = "<group>"; };
 		3BFF4EB0273D998E00CF3A57 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		600BC62D2751C65A0047C83D /* addTableButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addTableButton.png; sourceTree = "<group>"; };
+		600BC62E2751C65B0047C83D /* tableMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableMarker.png; sourceTree = "<group>"; };
+		600BC62F2751C65B0047C83D /* currentLocationButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentLocationButton.png; sourceTree = "<group>"; };
+		600BC6302751C65C0047C83D /* tableListButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableListButton.png; sourceTree = "<group>"; };
+		600BC6312751C65C0047C83D /* tableCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableCircle.png; sourceTree = "<group>"; };
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		76DE1C2F2751BD9D0090FDE2 /* addTableButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addTableButton.png; path = ../../../../../Downloads/addTableButton.png; sourceTree = "<group>"; };
-		76DE1C302751BD9E0090FDE2 /* tableCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableCircle.png; path = ../../../../../Downloads/tableCircle.png; sourceTree = "<group>"; };
-		76DE1C312751BD9E0090FDE2 /* tableListButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableListButton.png; path = ../../../../../Downloads/tableListButton.png; sourceTree = "<group>"; };
-		76DE1C322751BD9E0090FDE2 /* tableMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableMarker.png; path = ../../../../../Downloads/tableMarker.png; sourceTree = "<group>"; };
-		76DE1C332751BD9F0090FDE2 /* currentLocationButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = currentLocationButton.png; path = ../../../../../Downloads/currentLocationButton.png; sourceTree = "<group>"; };
 		7957E3C307DB87923056D1B1 /* Pods_Toss_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toss_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1341A5274C62A90093B1C4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DD460FD9274AF4A7004A4D97 /* tables.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tables.png; sourceTree = "<group>"; };
@@ -144,11 +144,11 @@
 		3B2095F02739B58400AF3005 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				76DE1C2F2751BD9D0090FDE2 /* addTableButton.png */,
-				76DE1C332751BD9F0090FDE2 /* currentLocationButton.png */,
-				76DE1C302751BD9E0090FDE2 /* tableCircle.png */,
-				76DE1C312751BD9E0090FDE2 /* tableListButton.png */,
-				76DE1C322751BD9E0090FDE2 /* tableMarker.png */,
+				600BC62D2751C65A0047C83D /* addTableButton.png */,
+				600BC62F2751C65B0047C83D /* currentLocationButton.png */,
+				600BC6312751C65C0047C83D /* tableCircle.png */,
+				600BC6302751C65C0047C83D /* tableListButton.png */,
+				600BC62E2751C65B0047C83D /* tableMarker.png */,
 				3B0718B8273F287B007662BC /* stacked-peaks-haikei.png */,
 				3B3FC89B273DF46900775053 /* TossTimeBig.png */,
 				3B3FC89A273DF46700775053 /* TossTimeMedium.png */,
@@ -257,22 +257,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				600BC6362751C65C0047C83D /* tableCircle.png in Resources */,
 				3B3FC89D273DF46A00775053 /* TossTimeMedium.png in Resources */,
 				3B2095F42739B81B00AF3005 /* BEER DIE ON UNIVERSITY HILL IN BOULDER.mp4 in Resources */,
-				76DE1C382751BD9F0090FDE2 /* currentLocationButton.png in Resources */,
-				76DE1C342751BD9F0090FDE2 /* addTableButton.png in Resources */,
+				600BC6322751C65C0047C83D /* addTableButton.png in Resources */,
 				3B3FC89F273DF46A00775053 /* TossTimeSmall.png in Resources */,
+				600BC6352751C65C0047C83D /* tableListButton.png in Resources */,
+				600BC6342751C65C0047C83D /* currentLocationButton.png in Resources */,
 				3B3FC89E273DF46A00775053 /* TossTimeBig.png in Resources */,
 				3A89A01F272A095300A1B3D3 /* LaunchScreen.storyboard in Resources */,
-				76DE1C372751BD9F0090FDE2 /* tableMarker.png in Resources */,
-				76DE1C362751BD9F0090FDE2 /* tableListButton.png in Resources */,
 				3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */,
 				3A89A01C272A095300A1B3D3 /* Assets.xcassets in Resources */,
 				3B2095F22739B63400AF3005 /* beerDieGif.gif in Resources */,
+				600BC6332751C65C0047C83D /* tableMarker.png in Resources */,
 				60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */,
 				3A389B942730C9F3001850EB /* infoWindowView.xib in Resources */,
 				DD460FDA274AF4A7004A4D97 /* tables.png in Resources */,
-				76DE1C352751BD9F0090FDE2 /* tableCircle.png in Resources */,
 				3A89A01A272A095200A1B3D3 /* Main.storyboard in Resources */,
 				3B0718B9273F287B007662BC /* stacked-peaks-haikei.png in Resources */,
 			);
