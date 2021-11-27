@@ -12,12 +12,18 @@ import Firebase
 import FirebaseAuth
 import SwiftUI
 
+
+/** Global Variables
+ - allMarkers       An array containing all marker objects on the map
+ - toRemove       Used to hide a marker after deletion (accounts for database latency)
+*/
 var allMarkers = Array<GMSMarker>()
-var toRemove = CLLocationCoordinate2D(latitude: 0.1, longitude: 0.1)
+var toRemove = CLLocationCoordinate2D()
+
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
-    var text:String = ""
+    // var text:String = ""         unnecessary?
     
     @IBOutlet weak var myMap: GMSMapView!
     @IBOutlet weak var tableList: UIButton!
@@ -26,8 +32,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     @IBOutlet weak var logoutButton: UIButton!
     
     public var completionHandler: ((String?) -> Void)?
-    
     let locationManager = CLLocationManager()
+    
+    
+    /**
+     This function handles all of the necessary setup once the ViewController loads.
+     Table data is loaded from the database, and coordinate pairs are created to instantiate markers with.      (setData function)
+     A prompt is given to the user the request if they wish to use their current location with the app.
+     Lastly, the license for Google Maps is printed to the console, for legal reasons.
+     
+     - Parameters:  None
+     
+     - Returns:     None
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -47,6 +64,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     
+    
+    /**
+     This function loads the table data from the Tables collection in Firestore
+     Using this data, it creates markers on the map utilizing the 'add_marker(_)' function.
+     
+     - Parameters:  None
+     
+     - Returns:     None
+     */
     func setData(){
         let db = Firestore.firestore()
                 
@@ -69,6 +95,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         }
     }
     
+    
+    /**
+     Initializes a new marker on the map when the user presses & holds at a location.
+     
+     - Parameters:
+        - coordinate:  The CLLocationCoordinate2D where the marker will be placed
+     
+     - Returns:     None
+     */
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let lat = coordinate.latitude
         let long = coordinate.longitude
@@ -83,6 +118,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         marker.tracksInfoWindowChanges = true
     }
     
+    
+    /**
+     Transitions to a new view controller - TableFormViewController
+     Refers to two members belonging to TableFormViewController:
+     
+        1. setCoordinates(  coord  )        A function that transfers marker's lat & long to global scope of TableFormViewController
+        2. markerToLoad                         Global variable in TableFormViewController, set to the user ID of the user who created the marker
+     
+     - Parameters:
+        - mapView:  The main GMSMapView
+        - marker:   The GMSMarker containing the info window which was tapped
+     
+     - Returns:     None
+     */
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
@@ -96,6 +145,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
     
+    // Unnecessary???
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         /*
         let camera = GMSCameraPosition(
@@ -107,6 +157,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
          */
     }
     
+    
+    // What to say?
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus{
         case .authorizedAlways:
@@ -124,6 +176,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         }
     }
     
+    
+    /**
+     This function adds a new GMSMarker object to the GMSMapView, given a coordinate and user ID string.
+     
+     - Parameters:
+        - mapview               The GMSMapView which will have a marker placed on it
+        - coordinate        The CLLocationCoordinate2D object where the new marker will be placed
+        - id                          The user ID string which is associated with the marker's user
+     
+     - Returns:         None
+     */
     func add_marker(mapView: GMSMapView, coordinate: CLLocationCoordinate2D, id: String){
         let marker = GMSMarker()
         marker.position = coordinate
@@ -135,13 +198,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         allMarkers.append(marker)
     }
     
+    
+    /**
+     This function removes a marker from:
+     1. The global variable 'allMarkers'
+     2. The GMSMapView
+     3. The Firestore "Tables" collection
+     
+     - Parameters:
+        - coordinate        The CLLocationCoordinate2D of the marker which is to be deleted
+     
+     - Returns:         None
+     */
     func remove_marker(coordinate: CLLocationCoordinate2D) {
-        // find the marker in the list and remove it from the map
-        
         for marker in allMarkers {
             let lat = marker.position.latitude
             let lon = marker.position.longitude
-            
             if ((lat == coordinate.latitude) && (lon == coordinate.longitude)) {
                 marker.map = nil
                 break
@@ -157,10 +229,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                     let data = document.data()
                     let lat = data["latitude"]  as! CLLocationDegrees
                     let lon = data["longitude"] as! CLLocationDegrees
-                    // let docID = data["id"] as! String
-                    
                     if ((coordinate.latitude  == lat) && (coordinate.longitude == lon)) {
-                        // if (mark.userData == docID) { }
                         toRemove = coordinate
                         document.reference.delete()
                     }
@@ -169,10 +238,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         }
     }
     
+    
+    /**
+     Error handling function - prints the error message to the console
+     
+     - Parameters:
+        - manager       CLLocationManager
+        - error           Error string
+     
+     - Returns:     None
+     */
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
     
+    
+    /**
+    Function which adds a marker at the current location - the functionality of the Add Table button
+     
+     - Parameters:
+        - mapView       The GMSMapView which will have a marker placed on it
+        - id                  The user ID string which is associated with the marker's user
+     
+     - Returns:     None
+     */
     func add_marker_at_current_location(mapView: GMSMapView, id: String){
         let lat = mapView.myLocation?.coordinate.latitude
         let long = mapView.myLocation?.coordinate.longitude
@@ -184,7 +273,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         marker.userData = id
         marker.tracksInfoWindowChanges = true
     }
-            
+    
+    
+    /**
+     Function which determines the user's current location and moves the map's camera position there
+     
+     - Parameters:
+        - mapView       The GMSMapView which the camera can traverse
+     
+     - Returns:     None
+     */
     func go_to_current_location(mapView: GMSMapView){
         let lat = mapView.myLocation?.coordinate.latitude
         let long = mapView.myLocation?.coordinate.longitude
@@ -192,6 +290,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             mapView.animate(to: camera)
     }
     
+    
+    /**
+     Function which prompts the user if they wish to log out - upon confirmation, they are logged out and transitioned to the login page.
+     
+     - Parameters:      None
+     
+     - Returns:         None
+     */
     func logout() {
         let actionSheet = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
         
@@ -216,22 +322,54 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         present(actionSheet, animated: true)
     }
-        
+    
+    
+    /**
+     This function activates when the user presses the Table List button at the bottom center of the screen.
+     
+     - Parameters:      None
+     
+     - Returns:         None
+     */
     @IBAction func tableList(_ sender: Any) {
         let tables = storyboard?.instantiateViewController(withIdentifier: "tables_view") as! TableViewController
         navigationController?.pushViewController(tables, animated: true)
         present(tables, animated: true)
     }
     
+    
+    /**
+     This function activates when the user presses the Add Table button at the bottom right of the screen.
+     
+     - Parameters:      None
+     
+     - Returns:         None
+     */
     @IBAction func add_table(_ sender: Any) {
         go_to_current_location(mapView: myMap)
         add_marker_at_current_location(mapView: myMap, id: Auth.auth().currentUser!.uid)
     }
     
+    
+    /**
+     This function activates when the user presses the Current Location button at the bottom left of the screen.
+     
+     - Parameters:      None
+     
+     - Returns:         None
+     */
     @IBAction func current_location(_ sender: Any) {
         go_to_current_location(mapView: myMap)
     }
     
+    
+    /**
+     This function activates when the user presses the Logout button at the top left of the screen.
+     
+     - Parameters:      None
+     
+     - Returns:         None
+     */
     @IBAction func logoutTapped(_ sender: Any) {
         logout()
     }
