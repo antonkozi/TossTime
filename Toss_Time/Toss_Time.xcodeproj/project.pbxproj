@@ -25,8 +25,6 @@
 		3B44FA4A2736033D002A8570 /* signLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B44FA492736033D002A8570 /* signLogin.swift */; };
 		3BD1EF882752BBED002785FA /* white.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3BD1EF872752BBED002785FA /* white.jpeg */; };
 		3BFF4EAD273B269A00CF3A57 /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAC273B269A00CF3A57 /* uploadImage.png */; };
-		3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */; };
-		3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF4EB0273D998E00CF3A57 /* Table.swift */; };
 		600BC6382751CED00047C83D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BC6372751CED00047C83D /* TableViewController.swift */; };
 		60AA3CC82735CD85005119E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */; };
 		60E4BF2B275239A10053FE93 /* tableMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E4BF25275239A10053FE93 /* tableMarker.png */; };
@@ -60,8 +58,6 @@
 		3B44FA492736033D002A8570 /* signLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signLogin.swift; sourceTree = "<group>"; };
 		3BD1EF872752BBED002785FA /* white.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white.jpeg; sourceTree = "<group>"; };
 		3BFF4EAC273B269A00CF3A57 /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadImage.png; sourceTree = "<group>"; };
-		3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tablesViewModel.swift; sourceTree = "<group>"; };
-		3BFF4EB0273D998E00CF3A57 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		600BC6372751CED00047C83D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60E4BF25275239A10053FE93 /* tableMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableMarker.png; sourceTree = "<group>"; };
@@ -166,8 +162,6 @@
 			children = (
 				3B44FA4727360070002A8570 /* Utilities.swift */,
 				3B2095EE2739B00D00AF3005 /* constants.swift */,
-				3BFF4EAE273D97B600CF3A57 /* tablesViewModel.swift */,
-				3BFF4EB0273D998E00CF3A57 /* Table.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -330,13 +324,11 @@
 				3B44FA432735F28E002A8570 /* loginViewController.swift in Sources */,
 				3B2095F6273B0BF700AF3005 /* TableFormViewController.swift in Sources */,
 				3A89A017272A095200A1B3D3 /* ViewController.swift in Sources */,
-				3BFF4EAF273D97B600CF3A57 /* tablesViewModel.swift in Sources */,
 				3A89A013272A095200A1B3D3 /* AppDelegate.swift in Sources */,
 				3B2095EF2739B00D00AF3005 /* constants.swift in Sources */,
 				3A89A015272A095200A1B3D3 /* SceneDelegate.swift in Sources */,
 				600BC6382751CED00047C83D /* TableViewController.swift in Sources */,
 				3B44FA4A2736033D002A8570 /* signLogin.swift in Sources */,
-				3BFF4EB1273D998E00CF3A57 /* Table.swift in Sources */,
 				3B44FA412735F26D002A8570 /* signupViewController.swift in Sources */,
 				3B44FA4827360070002A8570 /* Utilities.swift in Sources */,
 			);
