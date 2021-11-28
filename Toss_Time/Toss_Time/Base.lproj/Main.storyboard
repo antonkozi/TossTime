@@ -167,8 +167,8 @@
                                         <rect key="frame" x="0.0" y="426" width="314" height="185.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="314" id="5ZI-wn-b3n"/>
-                                            <constraint firstAttribute="height" constant="185.5" id="b2F-K5-iwK"/>
+                                            <constraint firstAttribute="width" constant="314" id="5ZI-wn-b3n" customClass="KeyboardLayoutConstraint" customModule="Toss_Time" customModuleProvider="target"/>
+                                            <constraint firstAttribute="height" constant="185.5" id="b2F-K5-iwK" customClass="KeyboardLayoutConstraint" customModule="Toss_Time" customModuleProvider="target"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -184,7 +184,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact info(email or phone number)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tlO-Iw-bqw">
                                         <rect key="frame" x="0.0" y="642.5" width="314" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="xvg-6t-1gY"/>
+                                            <constraint firstAttribute="height" constant="50" id="xvg-6t-1gY" customClass="KeyboardLayoutConstraint" customModule="Toss_Time" customModuleProvider="target"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
