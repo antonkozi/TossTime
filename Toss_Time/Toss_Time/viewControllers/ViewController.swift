@@ -290,12 +290,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         marker.map = mapView
         marker.userData = id
         marker.tracksInfoWindowChanges = true
-        
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
-        vc.setCoordinates(coord: marker.position)
-        vc.markerToLoad = marker.userData as! String
-        navigationController?.pushViewController(vc, animated: true)
-        present(vc, animated: true)
     }
     
     
