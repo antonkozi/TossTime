@@ -9,6 +9,13 @@ import UIKit
 import FirebaseAuth
 import SwiftUI
 
+
+/**
+View cotroller class that:
+ 1. Displays a login page
+ 2. Logs a user in with FirebaseAuth
+ This class is linked to the storyboard memeber of the same name
+ */
 class loginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,11 +29,26 @@ class loginViewController: UIViewController {
         setUpElements()
     }
     
-    //dismiss keyboard when touching outside the keyboard
+    /**
+    Function dismisses keyboard when tapping outside the keyboard
+     
+     - Parameters:
+        - touches       UITouch library that tracks user touch
+        - event            UIEvent that tracks events
+     
+     - Returns:     None
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    /**
+    Function styles buttons and labels
+     
+     - Parameters:N/A
+     
+     - Returns:     None
+     */
     func setUpElements(){
         errorLabel.alpha = 0
         
@@ -35,17 +57,14 @@ class loginViewController: UIViewController {
         Utilities.styleFilledButton(loginButton)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    /**
+    Function logs user in and transitions to the map view
+     
+     - Parameters:
+        - sender        Anything that sends a signal to the button
+     
+     - Returns:     None
+     */
     @IBAction func loginTapped(_ sender: Any) {
         
         //validate Text Fields

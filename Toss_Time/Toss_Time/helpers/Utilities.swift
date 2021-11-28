@@ -2,7 +2,7 @@
 //  Utilities.swift
 //  customauth
 //
-//  Created by Christopher Ching on 2019-05-09. Modified by Anton Kozintsev 2021-11-07
+//  Created by Christopher Ching on 2019-05-09.
 //  Copyright © 2019 Christopher Ching. All rights reserved.
 //
 

@@ -15,12 +15,13 @@ import FirebaseStorage
 
 
 /**
-Class of type UIViewController that:
+View cotroller class that:
  1. Displays table form
  2. Allows user to fill out table form
  3. Allows user to delete, edit, and post their table
  4. Allows user to upload an optional image of their table
  5.  Allows other users to view but not edit table or delete table form
+ This class is linked to the storyboard memeber of the same name
  */
 class TableFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
     
