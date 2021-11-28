@@ -35,6 +35,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     public var completionHandler: ((String?) -> Void)?
     let locationManager = CLLocationManager()
     
+    struct myLocationVar {
+        static var CLL = CLLocation();
+    }
     
     /**
      This function handles all of the necessary setup once the ViewController loads.
@@ -61,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         else{
             locationManager.requestWhenInUseAuthorization()
         }
-       
+        myLocationVar.CLL = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
         print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     
