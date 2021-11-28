@@ -160,7 +160,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let camera = GMSCameraPosition(
             target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
-            zoom: 8,
+            zoom: 17,
             bearing: 0,
             viewingAngle: 0)
         myMap.animate(to: camera)
@@ -307,7 +307,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     func go_to_current_location(mapView: GMSMapView){
         let lat = mapView.myLocation?.coordinate.latitude
         let long = mapView.myLocation?.coordinate.longitude
-        let camera = GMSCameraPosition.camera(withLatitude: lat ?? 0.0, longitude: long ?? 0.0, zoom: 8)
+        let camera = GMSCameraPosition.camera(withLatitude: lat ?? 0.0, longitude: long ?? 0.0, zoom: 17)
             mapView.animate(to: camera)
     }
     
@@ -393,5 +393,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
      */
     @IBAction func logoutTapped(_ sender: Any) {
         logout()
+    }
+    
+    func goToLocation(latitude: Double, longitude: Double){
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 17)
+        myMap.animate(to: camera)
     }
 }

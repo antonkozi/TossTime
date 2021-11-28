@@ -71,13 +71,12 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.reloadData()
         
         let cur = tables[indexPath.row]
-        let tableLoc = CLLocationCoordinate2D(latitude: cur.latitude, longitude: cur.longitude)
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
-                
-        vc.setCoordinates(coord: tableLoc)
-        vc.markerToLoad = Auth.auth().currentUser!.uid
-        navigationController?.pushViewController(vc, animated: true)
-        present(vc, animated: true)
+        
+        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
+        self.view.window?.rootViewController = mapViewController
+        self.view.window?.makeKeyAndVisible()
+        mapViewController?.goToLocation(latitude: cur.latitude, longitude: cur.longitude)
+        
     }
     
     func selectCell(indexPath: IndexPath) {
