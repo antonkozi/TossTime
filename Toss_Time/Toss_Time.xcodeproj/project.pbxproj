@@ -120,12 +120,12 @@
 				3B2095F02739B58400AF3005 /* Media */,
 				3B44FA4627360046002A8570 /* helpers */,
 				3B44FA442735FE3B002A8570 /* viewControllers */,
-				60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */,
 				3A89A012272A095200A1B3D3 /* AppDelegate.swift */,
 				3A89A014272A095200A1B3D3 /* SceneDelegate.swift */,
 				3A89A018272A095200A1B3D3 /* Main.storyboard */,
-				3A89A01B272A095300A1B3D3 /* Assets.xcassets */,
 				3A89A01D272A095300A1B3D3 /* LaunchScreen.storyboard */,
+				3A89A01B272A095300A1B3D3 /* Assets.xcassets */,
+				60AA3CC72735CD85005119E9 /* GoogleService-Info.plist */,
 				3A89A020272A095300A1B3D3 /* Info.plist */,
 			);
 			path = Toss_Time;

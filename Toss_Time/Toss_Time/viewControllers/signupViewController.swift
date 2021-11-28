@@ -10,6 +10,13 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 
+
+/**
+View cotroller class that:
+ 1. Displays a signup page
+ 2. signs a user up with FirebaseAuth
+ This class is linked to the storyboard memeber of the same name
+ */
 class signupViewController: UIViewController {
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -31,11 +38,27 @@ class signupViewController: UIViewController {
        setUpElements()
     }
     
-    //dismiss keyboard when touching outside the keyboard
+    /**
+    Function dismisses keyboard when tapping outside the keyboard
+     
+     - Parameters:
+        - touches       UITouch library that tracks user touch
+        - event            UIEvent that tracks events
+     
+     - Returns:     None
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    
+    /**
+    Function styles UI fields
+     
+     - Parameters:N/A
+     
+     - Returns:     None
+     */
     func setUpElements(){
         
         //Hide the error label
@@ -50,7 +73,13 @@ class signupViewController: UIViewController {
     
     
     
-    //Check the fields and validate that the data is correct. If everything is correct this method returns nil otherwise it reutrns an error message
+    /**
+    Function checks the fields and validates their correctsness, returns a string that is NIL if everything is okay, or contains an error message
+     
+     - Parameters:N/A
+     
+     - Returns:     String
+     */
     func validateFields() -> String? {
         //Check that all fields are filled in
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -71,6 +100,14 @@ class signupViewController: UIViewController {
     
     }
     
+    /**
+    Function checks if SignUpButton was tapped
+     
+     - Parameters:
+        - sender:   anything that sends a signal to the button
+     
+     - Returns:     None
+     */
     @IBAction func signUpTapped(_ sender: Any) {
         
         //validate fields
@@ -110,6 +147,13 @@ class signupViewController: UIViewController {
         }
     }
     
+    /**
+    Function transitions from the signup screen to the map view
+     
+     - Parameters:N/A
+     
+     - Returns:     None
+     */
     func transitionToHome(){
         
         let mapViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
@@ -118,6 +162,14 @@ class signupViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
+    /**
+    Function shows error message in error label
+     
+     - Parameters:
+        - messsage:   a string containing an error messageV
+     
+     - Returns:     None
+     */
     func showError( _ message:String){
         errorLabel.text = message
         errorLabel.alpha = 1
