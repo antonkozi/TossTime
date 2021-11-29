@@ -149,7 +149,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
     /**
-     Transitions to users current location using the camera class provided by google maps
+     Function manages locations, doesnt actually do anything but the app crashes without it
      
      - Parameters:
         - manager:  Property that manages everything to do with locations
@@ -158,16 +158,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
      - Returns:     None
      */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let camera = GMSCameraPosition(
-            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
-            zoom: 17,
-            bearing: 0,
-            viewingAngle: 0)
-        myMap.animate(to: camera)
+        //this code takes you to your current location everytime the map is opened
+//        let camera = GMSCameraPosition(
+//            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
+//            zoom: 17,
+//            bearing: 0,
+//            viewingAngle: 0)
+//        myMap.animate(to: camera)
     }
 
     
-    // What to say?
+    /**
+     Function handles permissions to user location
+     
+     - Parameters:
+        - manager:  Property that manages everything to do with locations
+     
+     - Returns:     None
+     */
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus{
         case .authorizedAlways:
