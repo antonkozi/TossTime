@@ -73,8 +73,8 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         
         let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
         self.view.window?.rootViewController = mapViewController
+        mapViewController?.goToLocation(latitude: cur.latitude, longitude: cur.longitude)
         self.view.window?.makeKeyAndVisible()
-        mapViewController!.goToLocation(latitude: cur.latitude, longitude: cur.longitude)
         
     }
     
