@@ -40,6 +40,7 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
     var longitude = 0.0
     var markerToLoad = ""
     var imagePickerController = UIImagePickerController()
+   
     
     private let storage = Storage.storage().reference()
     
@@ -47,26 +48,8 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         imagePickerController.delegate = self
         //set the fields of the table
-        
-        //set table image
-        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
-              let url = URL(string: urlString)
-        else{
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data, error == nil else{
-                return
-            }
-            
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                self.TableImage.image = image
-            }
-            
-        }
-        task.resume()
         setElements()
+    
     }
     
     /**
@@ -104,6 +87,20 @@ class TableFormViewController: UIViewController, UIImagePickerControllerDelegate
                     let houseRules = docData!["houseRules"] as? String ?? ""
                     let contactInfo = docData!["contactInfo"] as? String ?? ""
                     let id = docData!["id"] as? String ?? ""
+                    print("id is \(id)")
+                    
+                    
+                    //set table image
+                    let photoRef = self.storage.child("images/\(id).png")
+                    photoRef.getData(maxSize: 1024*1024*1024) { Data, Error in
+                        if let Error = Error{
+                            print("could not load image \(Error)")
+                        }
+                        else{
+                            let tablePhoto = UIImage(data: Data!)
+                            self.TableImage.image = tablePhoto
+                        }
+                    }
 
                     //set text fields
                     self.TableOwnerTextField.text = owner
