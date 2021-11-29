@@ -31,6 +31,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     var tables = [tableStruct]()
     @IBOutlet weak var searchBar: UISearchBar!
     var toggleInfo = true
+    var timer: Timer?
     /**
     Function initializes table, fetches data from database, starts timer
      - Parameters: None
@@ -44,7 +45,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         // fetch data from database into tables var
         fetchTables()
         // set up timer
-        _ = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.toggleData), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.toggleData), userInfo: nil, repeats: true)
     }
     /**
     Function switches boolean and reloads table cells (to choose which cell to display)
@@ -58,6 +59,16 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.reloadData()
     }
     /**
+    Function stops timer switching data and sets to location showing only
+     - Parameters: None
+     - Returns:    None
+     */
+    func stopTimer() {
+        self.timer?.invalidate()
+        self.timer = nil
+        toggleInfo = false
+    }
+     /**
     Function returns number of sections per row, only 1 needed
      - Parameters:
         - tableView       UITableView of View Controller
@@ -134,6 +145,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
      - Returns:       None
      */
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        stopTimer()
         // reload tables into self.tables without reloading data
         fetchTables(reload: false)
         // filter data case insensitive to search for table owners
