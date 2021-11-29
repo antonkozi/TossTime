@@ -82,8 +82,7 @@ class loginViewController: UIViewController {
                 withAnimation {
                     self.view.window?.makeKeyAndVisible()
                 }
-                
-                
+                mapViewController?.go_to_current_location()
                 
             }
         

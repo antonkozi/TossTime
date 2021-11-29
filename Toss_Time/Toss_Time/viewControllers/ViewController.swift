@@ -137,7 +137,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
      - Returns:     None
      */
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        
         let vc = storyboard?.instantiateViewController(withIdentifier: "TableFormVC") as! TableFormViewController
                 
         vc.setCoordinates(coord: marker.position)
@@ -158,6 +157,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
      - Returns:     None
      */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+<<<<<<< Updated upstream
         //this code takes you to your current location everytime the map is opened
 //        let camera = GMSCameraPosition(
 //            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
@@ -165,6 +165,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
 //            bearing: 0,
 //            viewingAngle: 0)
 //        myMap.animate(to: camera)
+=======
+       /* let camera = GMSCameraPosition(
+            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
+            zoom: 17,
+            bearing: 0,
+            viewingAngle: 0)
+        myMap.animate(to: camera)*/
+>>>>>>> Stashed changes
     }
 
     
@@ -307,16 +315,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     /**
      Function which determines the user's current location and moves the map's camera position there
      
-     - Parameters:
-        - mapView       The GMSMapView which the camera can traverse
+     - Parameters: None
      
      - Returns:     None
      */
-    func go_to_current_location(mapView: GMSMapView){
-        let lat = mapView.myLocation?.coordinate.latitude
-        let long = mapView.myLocation?.coordinate.longitude
+    func go_to_current_location(){
+        let lat = myMap.myLocation?.coordinate.latitude
+        let long = myMap.myLocation?.coordinate.longitude
         let camera = GMSCameraPosition.camera(withLatitude: lat ?? 0.0, longitude: long ?? 0.0, zoom: 17)
-            mapView.animate(to: camera)
+            myMap.animate(to: camera)
     }
     
     
@@ -375,7 +382,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
      - Returns:         None
      */
     @IBAction func add_table(_ sender: Any) {
-        go_to_current_location(mapView: myMap)
+        go_to_current_location()
         add_marker_at_current_location(mapView: myMap, id: Auth.auth().currentUser!.uid)
     }
     
@@ -388,7 +395,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
      - Returns:         None
      */
     @IBAction func current_location(_ sender: Any) {
-        go_to_current_location(mapView: myMap)
+        go_to_current_location()
     }
     
     
