@@ -2,15 +2,28 @@
 //  Utilities.swift
 //  customauth
 //
-//  Created by Christopher Ching on 2019-05-09.
+//  Created by Christopher Ching on 2019-05-09, modified by Anton Kozintsev
 //  Copyright © 2019 Christopher Ching. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
+
+/**
+This class contains helpful methods for styling UIElements, and also validating passwords and emails
+ */
 class Utilities {
     
+    
+    /**
+    Function styles a text field
+     
+     - Parameters:
+        - textfield     UITextField that needs to be styled
+     
+     - Returns:     None
+     */
     static func styleTextField(_ textfield:UITextField) {
         
         // Create the bottom line
@@ -28,6 +41,14 @@ class Utilities {
         
     }
     
+    /**
+    Function styles a label field
+     
+     - Parameters:
+        - label     UILabel that needs to be styled
+     
+     - Returns:     None
+     */
     static func styleLabel(_ label:UILabel){
         let bottomLine = CALayer()
         
@@ -40,6 +61,14 @@ class Utilities {
         
     }
     
+    /**
+    Function styles a filled button
+     
+     - Parameters:
+        - button     UIButton that needs to be styled
+     
+     - Returns:     None
+     */
     static func styleFilledButton(_ button:UIButton) {
         
         // Filled rounded corner style
@@ -48,6 +77,14 @@ class Utilities {
         button.tintColor = UIColor.white
     }
     
+    /**
+    Function styles a hollow button
+     
+     - Parameters:
+        - button     UIButton that needs to be styled
+     
+     - Returns:     None
+     */
     static func styleHollowButton(_ button:UIButton) {
         
         // Hollow rounded corner style
@@ -57,12 +94,28 @@ class Utilities {
         button.tintColor = UIColor.black
     }
     
+    /**
+    Function checks to see if a password is valid/strong enough
+     
+     - Parameters:
+        - password     the users password
+     
+     - Returns:     Bool
+     */
     static func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
     
+    /**
+    Function checks to see if an email is properly formatted
+     
+     - Parameters:
+        - emailID     the users email as a string
+     
+     - Returns:     Bool
+     */
     static func isValidEmail(emailID:String) -> Bool {
             let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
             let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)

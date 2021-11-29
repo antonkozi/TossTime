@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+This file contains constants with the ID's of view controllers that are used in transitions
+ */
 struct Constants{
     struct Storboard{
         static let mapController = "map_vc"
