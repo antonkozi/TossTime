@@ -114,7 +114,14 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         if (toggleInfo) {
             cell.detailTextLabel?.text = cur.contactInfo
         } else {
-            cell.detailTextLabel?.text = String(format: "%.2f", distance)+" miles away"
+            // define text 
+            var text = ""
+            if (distance < 1) {
+                text = "less than a mile away"
+            } else {
+                text = String(format: "%.1f", distance)+" miles away"
+            }
+            cell.detailTextLabel?.text = text
         }
         return cell
     }
@@ -157,14 +164,14 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         
     }
     /**
-    Function returns number of sections per row, only 1 needed
+    Function returns number of sections per row, only 1 needed, store by distance
      - Parameters:
         - reload     boolean that decides if table reloads data upon inserting database entries into local array
      - Returns:       None
      */
     func fetchTables(reload: Bool=true) {
         let db = Firestore.firestore()
-        // retrieve table data
+        // retrieve table data,
         db.collection("Tables").getDocuments { (snapchat, error) in
             if error != nil {
                 print(error as Any)
@@ -181,6 +188,10 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
                     if (!self.tables.contains(where: {$0.id == id})) {
                         // insert into tableStruct format
                         self.tables.insert(tableStruct(id: id, owner: owner, contactInfo: contactInfo, latitude: latitude, longitude: longitude), at: 0)
+                        // sort by distance
+                        self.tables = self.tables.sorted{
+                            ViewController.myLocationVar.CLL.distance(from: CLLocation(latitude: $0.latitude, longitude: $0.longitude)) < ViewController.myLocationVar.CLL.distance(from: CLLocation(latitude: $1.latitude, longitude: $1.longitude))
+                        }
                     }
                     // if true reload table cell data
                     if (reload) {
