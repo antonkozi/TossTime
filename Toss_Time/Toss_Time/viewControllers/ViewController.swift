@@ -92,7 +92,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                     let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                     let id = data["id"]
                     
-                    if ((lat == toRemove.latitude) && (lon == toRemove.longitude)) { continue }
+                    if ((lat == toRemove.latitude) && (lon == toRemove.longitude)) {
+                        toRemove = CLLocationCoordinate2D()
+                        continue
+                    }
                     self.add_marker(mapView: self.myMap, coordinate: coord, id: id as! String)
                 }
             }
