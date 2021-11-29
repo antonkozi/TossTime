@@ -89,6 +89,12 @@ class signupViewController: UIViewController {
         
         //TODO: check that the email is not already in use
         
+        //check if email is properly formatted
+        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if Utilities.isValidEmail(emailID: email) == false {
+                    return "Please Enter a valid email address"
+                }
+        
         //check if password is secure
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
