@@ -165,6 +165,7 @@ class signupViewController: UIViewController {
         let mapViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
         
         view.window?.rootViewController = mapViewController
+        mapViewController?.go_to_current_location()
         view.window?.makeKeyAndVisible()
     }
     

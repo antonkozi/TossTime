@@ -21,6 +21,8 @@ var allMarkers = Array<GMSMarker>()
 var toRemove = CLLocationCoordinate2D()
 private let storage = Storage.storage().reference()
 
+var preLat = 36.9741
+var preLong = -122.0308
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
@@ -60,11 +62,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         if CLLocationManager.locationServicesEnabled(){
             locationManager.requestLocation()
             myMap.settings.zoomGestures=true
+            
         }
         else{
             locationManager.requestWhenInUseAuthorization()
         }
-        myLocationVar.CLL = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
+        myLocationVar.CLL = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? preLat, longitude: locationManager.location?.coordinate.longitude ?? preLong)
         print("license \n\n\(GMSServices.openSourceLicenseInfo())")
     }
     
@@ -297,7 +300,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         let lat = mapView.myLocation?.coordinate.latitude
         let long = mapView.myLocation?.coordinate.longitude
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: lat ?? 0.0, longitude: long ?? 0.0)
+        marker.position = CLLocationCoordinate2D(latitude: lat ?? preLat, longitude: long ?? preLong)
         marker.icon = UIImage(named: "tableMarker.png")
         marker.title = "Tap to View Table"
         marker.map = mapView
@@ -316,7 +319,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     func go_to_current_location(){
         let lat = myMap.myLocation?.coordinate.latitude
         let long = myMap.myLocation?.coordinate.longitude
-        let camera = GMSCameraPosition.camera(withLatitude: lat ?? 0.0, longitude: long ?? 0.0, zoom: 17)
+        let camera = GMSCameraPosition.camera(withLatitude: lat ?? preLat, longitude: long ?? preLong, zoom: 13)
             myMap.animate(to: camera)
     }
     
