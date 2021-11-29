@@ -394,7 +394,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     @IBAction func logoutTapped(_ sender: Any) {
         logout()
     }
-    
+    /**
+    Function which brings Google Maps view to specific coordinates
+     
+     - Parameters:
+        - latitude      latitude in Double to zoom to
+        - longitude         longitude in Double to zoom to
+     
+     - Returns:     None
+     */
     func goToLocation(latitude: Double, longitude: Double){
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 17)
         myMap.animate(to: camera)

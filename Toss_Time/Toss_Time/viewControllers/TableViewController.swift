@@ -30,9 +30,8 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.dataSource = self
         self.searchBar.delegate = self
         fetchTables()
-
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,7 +74,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storboard.mapController) as? ViewController
         self.view.window?.rootViewController = mapViewController
         self.view.window?.makeKeyAndVisible()
-        mapViewController?.goToLocation(latitude: cur.latitude, longitude: cur.longitude)
+        mapViewController!.goToLocation(latitude: cur.latitude, longitude: cur.longitude)
         
     }
     
