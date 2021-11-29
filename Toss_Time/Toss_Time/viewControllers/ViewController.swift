@@ -157,22 +157,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
      - Returns:     None
      */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-<<<<<<< Updated upstream
-        //this code takes you to your current location everytime the map is opened
-//        let camera = GMSCameraPosition(
-//            target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
-//            zoom: 17,
-//            bearing: 0,
-//            viewingAngle: 0)
-//        myMap.animate(to: camera)
-=======
        /* let camera = GMSCameraPosition(
             target: CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0),
             zoom: 17,
             bearing: 0,
             viewingAngle: 0)
         myMap.animate(to: camera)*/
->>>>>>> Stashed changes
+
     }
 
     
