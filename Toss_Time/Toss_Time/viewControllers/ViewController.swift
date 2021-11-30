@@ -55,6 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         super.viewDidLoad()
         locationManager.delegate = self
         myMap.isMyLocationEnabled = true
+        self.myMap.mapStyle(fileName: "theme", fileType: "json")
         myMap.delegate = self
         
         setData()
@@ -418,5 +419,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     func goToLocation(latitude: Double, longitude: Double){
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 17)
         myMap.animate(to: camera)
+    }
+}
+
+/**
+ This function changes the theme of the map
+ 
+ - Parameters:      File name of theme json and type of file
+ 
+ - Returns:         None
+ */
+extension GMSMapView {
+    func mapStyle(fileName name: String, fileType type: String) {
+        do {
+            if let styleFile = Bundle.main.url(forResource: name, withExtension: type) {
+                self.mapStyle = try GMSMapStyle(contentsOfFileURL: styleFile)
+            } else {
+                NSLog("Not Found")
+            }
+        } catch {
+            NSLog("Not Loaded")
+        }
     }
 }
