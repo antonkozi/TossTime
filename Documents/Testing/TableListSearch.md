@@ -10,7 +10,7 @@
 ###### - Contact info
 ###### - Distance (in miles)
 
-#### 3.) Type any set of letters in a table owner's name in search bar:
+#### 3.) Type any set of letters in a table owner's name in search bar (case insensitive):
 
 ###### - 'st' lists Steve Beurard for example via Regex match
 ###### - '' (empty) lists all tables
